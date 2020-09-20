@@ -1,0 +1,37 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Nunito", sans-serif;
+  height: 100vh;
+  #root {
+    min-height: 100%;
+    height: 100%;
+  }
+}
+@import "./fonts.scss";
+@import "./variable.scss";
+@import "./mixin.scss";
+@import "./../components/Common/Loader/Loader.scss";
+@import "./../pages/404page/404.scss";
+@import "./../pages/signIn/signIn.scss";
+@import "./../pages/signUp/SignUp.scss";
+@import "../components/HomeComponents/Header/Header.scss";
+@import "../components/HomeComponents/Image/Image.scss";
+@import "../components/HomeComponents/Content/Content.scss";
+@import "../components/HomeComponents/NeedHelp/NeedHelp.scss";
+@import "../components/HomeComponents/Footer/Footer.scss";
+@import "../components/HomeComponents/ImageCarousel/ImageCarousel.scss";
+@import "../pages/plp/plp.scss";
+@import "../pages/plp/plp-filter/PlpFilter.scss";
+@import "../components/Common/Modal/Modal.scss";
+@import "../pages/plp/plp-filter/PlpSortFilter.scss";
+@import "../components/Mobile/Header/Header.scss";

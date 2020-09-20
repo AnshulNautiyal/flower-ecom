@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("../static/fonts/icomoon.ttf") format("truetype"),
+    url("../static/fonts/icomoon.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-arrow-left2:before {
+    font-family: "icomoon";
+  content: "\ea40";
+}

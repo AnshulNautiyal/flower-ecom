@@ -1,0 +1,48 @@
+.modal {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $lite-black;
+
+    &__container {
+
+        animation: slideModal .5s;
+        position: relative;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        &--close {
+            position: absolute;
+            position: absolute;
+            left: 50%;
+            top: -50px;
+            font-size: $ft24;
+            color: $text-white-color;
+        }
+        &--content {
+            padding: 20px;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+    }
+    .drawer {
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100px;
+        background-color: $singin-background-color;
+    }
+}
+.displayBlock {
+    display: block;
+}
+.displayNone {
+    display: none;
+}
+@keyframes slideModal {
+    from {bottom:-300px; opacity:0} 
+  to {bottom:0; opacity:1}
+}

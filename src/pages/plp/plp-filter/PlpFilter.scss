@@ -1,0 +1,26 @@
+.plpFilter{
+    position: fixed;
+    height: 40px;
+    background-color: $text-black-color;
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    @include defaultFlex();
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 95%;
+    width: 95%;
+    div {
+        @include defaultFlex();
+        width: 100%;
+        font-size: $ft16;
+        color: $text-white-color;
+        height: 100%;
+        letter-spacing: 2px;
+        span {
+            margin-left: 10px;
+        }
+    }
+    &__filter {
+        border-right: 1px solid $text-white-color;
+    }
+}

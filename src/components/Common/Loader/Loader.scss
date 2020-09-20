@@ -1,0 +1,117 @@
+.logo-loader-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #0000008c;
+  display: block;
+  z-index: 1;
+}
+.logo-loader {
+    z-index: 2;
+  width: 75px;
+  height: 75px;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  display: block;
+}
+.logo-loader span {
+  width: 75px;
+  height: 75px;
+  position: fixed;
+  top: 80%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "NudistaSemibold";
+  letter-spacing: 1px;
+  color: #9ac161;
+}
+
+@keyframes opacitychange {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+#green-flower-drop {
+  height: 75px;
+  width: auto;
+  fill: #77bc1f;
+  position: absolute;
+}
+
+#green-flower-one {
+  height: 75px;
+  position: absolute;
+  width: auto;
+  fill: #77bc1f;
+  opacity: 0.5;
+  animation: opacitychange 2s ease-in-out 1.12s infinite;
+}
+#green-flower-two {
+  height: 75px;
+  position: absolute;
+  width: auto;
+  fill: #77bc1f;
+  opacity: 0.5;
+  animation: opacitychange 2s ease-in-out 1.4s infinite;
+}
+#green-flower-three {
+  height: 75px;
+  position: absolute;
+  width: auto;
+  fill: #77bc1f;
+  opacity: 0.5;
+  animation: opacitychange 2s ease-in-out 1.68s infinite;
+}
+#green-flower-four {
+  height: 75px;
+  position: absolute;
+  width: auto;
+  fill: #77bc1f;
+  opacity: 0.5;
+  animation: opacitychange 2s ease-in-out infinite;
+}
+#green-flower-five {
+  height: 75px;
+  position: absolute;
+  width: auto;
+  fill: #77bc1f;
+  opacity: 0.5;
+  animation: opacitychange 2s ease-in-out 0.28s infinite;
+}
+#green-flower-six {
+  height: 75px;
+  position: absolute;
+  width: auto;
+  fill: #77bc1f;
+  opacity: 0.5;
+  animation: opacitychange 2s ease-in-out 0.56s infinite;
+}
+#green-flower-seven {
+  height: 75px;
+  position: absolute;
+  width: auto;
+  fill: #77bc1f;
+  opacity: 0.5;
+  animation: opacitychange 2s ease-in-out 0.84s infinite;
+}

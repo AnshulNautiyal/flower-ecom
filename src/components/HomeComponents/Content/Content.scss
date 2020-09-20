@@ -1,0 +1,64 @@
+.content-section {
+  width: 100vw;
+  height: 360px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h2 {
+    text-align: center !important;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase !important;
+    font-family: Noto Sans KR, -apple-system, BlinkMacSystemFont, Segoe UI,
+      Roboto, Helvetica Neue, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.125rem;
+    letter-spacing: 0.2025rem;
+    color: #1f304f;
+  }
+  div {
+    text-align: center !important;
+    box-sizing: border-box;
+    margin-top: 0;
+    font-weight: 400;
+    text-transform: uppercase !important;
+    font-family: Playfair Display;
+    font-size: 2rem;
+    line-height: 1;
+    letter-spacing: 0.20625rem;
+    margin-bottom: 2.1875rem;
+    color: #1f304f;
+  }
+  p {
+    text-align: center !important;
+    box-sizing: border-box;
+    margin-top: 0;
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 1.85rem;
+    letter-spacing: 0.0225rem;
+    margin-bottom: 28px !important;
+    color: #1f304f;
+    padding: 0 20px;
+  }
+  button {
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: uppercase!important;
+    font-family: Noto Sans KR,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+    padding: .9375rem 0;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: .135rem;
+    line-height: 1.375rem;
+    background-color: #1f304f;
+    color: #ffffff;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+  }
+}

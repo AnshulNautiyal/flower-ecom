@@ -1,0 +1,28 @@
+.Header{
+    height:55px;
+    background-color: $text-white-color;
+    @include defaultFlex(row,flex-start);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 1px 1px 3px 0 rgba(19, 56, 80, 0.16);
+    padding: 0 16px;
+    ion-icon {
+        font-size: 24px;
+    }
+    div:first-child {
+        margin-right: 10px;
+    }
+    div:nth-child(2){
+       flex: 1; 
+    }
+    .headerContent {
+        p {
+            font-size: 14px;
+            &:last-child {
+                color: #6d6d6d;
+            }
+        }
+    }
+}

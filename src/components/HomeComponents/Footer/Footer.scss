@@ -1,0 +1,48 @@
+.homeFooter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f304f;
+
+  .footerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+        width: 100%;
+      span {
+          font-size: 16px;
+          color: white;
+          margin-bottom: 10px;
+      }
+    }
+  }
+
+  button {
+    width: 200px;
+    height: 50px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-align: center;
+    padding: .9375rem 0;
+    display: block;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.375rem;
+    text-transform: uppercase;
+    background-color: #9ac2a0;
+    font-size: 1.125rem;
+    letter-spacing: .2025rem;
+
+    border: none;
+
+  }
+}
