@@ -1,7 +1,18 @@
 export const getPlpData = (state) => {
   const { plpData = {} } = state;
-  const { flowerData = [], numberOfItem = "", plpheader = "" } = plpData;
-  const productCard = flowerData.map((item) => {
+  const {
+    flowerData = [],
+    numberOfItem = "",
+    plpheader = "",
+    plpSortedData = [],
+    plpSortByType = "",
+  } = plpData;
+
+  const tempPlpData =
+    plpSortByType === "Relevance" || plpSortByType === ""
+      ? [...flowerData]
+      : [...plpSortedData];
+  const productCard = tempPlpData.map((item) => {
     const {
       price = "",
       wasPrice = "",

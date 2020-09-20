@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { noop } from "../../../utils/defaultFunction";
 
-const PLP_SORT_FILTER = [
-  "Relevance",
-  "Price(Lowest First)",
-  "Price(Highest first)",
-];
+export const PLP_SORT_FILTER = {
+  relevance: "Relevance",
+  lowToHigh: "Price(Lowest First)",
+  highToLow: "Price(Highest first)",
+};
 
 const radioButton = {
   check: <ion-icon name="radio-button-on-outline"></ion-icon>,
@@ -14,7 +14,7 @@ const radioButton = {
 
 const PlpSortFilter = ({ plpSortBy = noop }) => {
   const [checkUnCheck, setRadioState] = useState(true);
-  const [sortByType, setSortByType] = useState(PLP_SORT_FILTER[0]);
+  const [sortByType, setSortByType] = useState(PLP_SORT_FILTER.relevance);
 
   const updateState = (sortByType) => () => {
     setSortByType(sortByType);
@@ -22,23 +22,26 @@ const PlpSortFilter = ({ plpSortBy = noop }) => {
       checkUnCheck: !prevState.checkUnCheck,
     }));
     plpSortBy(sortByType);
+    window.scrollTo(0, 0);
   };
 
   const getFilter = () => {
-    return PLP_SORT_FILTER.map((item) => {
+    return Object.keys(PLP_SORT_FILTER).map((item) => {
       return (
         <div
           className="plpSort__filter--item"
-          onClick={updateState(item)}
-          key={item}
+          onClick={updateState(PLP_SORT_FILTER[item])}
+          key={PLP_SORT_FILTER[item]}
         >
-          <input type="radio" name="sortBy" id={item} />
+          <input type="radio" name="sortBy" id={PLP_SORT_FILTER[item]} />
           {
             radioButton[
-              checkUnCheck && sortByType === item ? "check" : "unCheck"
+              checkUnCheck && sortByType === PLP_SORT_FILTER[item]
+                ? "check"
+                : "unCheck"
             ]
           }
-          <label htmlFor={item}>{item}</label>
+          <label htmlFor={PLP_SORT_FILTER[item]}>{PLP_SORT_FILTER[item]}</label>
         </div>
       );
     });
