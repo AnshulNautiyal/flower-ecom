@@ -31,6 +31,7 @@
         }
         .productDetail {
             
+            position: relative;
 
             p {
             font-size: 16px;
@@ -54,6 +55,24 @@
             .discount {
                 font-weight: bold;
                 color: $green;
+            }
+            .colorVariant {
+                height: 100%;
+                @include defaultFlex(row,flex-start);
+                margin-left: 16px;
+                .color {
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 100%;
+                    border: solid 3px white;
+                    box-shadow: 0 1px 2px 0 rgba(0 ,0, 0, .15);
+                    margin-left: -10px;
+                    transition: transform .2s;
+                    
+                    &:hover {
+                        transform: scale(1.4);
+                    }
+                }
             }
         }
     }

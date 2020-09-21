@@ -7,8 +7,9 @@
     @include defaultFlex();
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 95%;
+    bottom: 0;
     width: 95%;
+    z-index: 20;
     div {
         @include defaultFlex();
         width: 100%;
