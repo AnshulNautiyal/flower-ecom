@@ -9,8 +9,9 @@
 html {
   font-size: 62.5%;
 }
+@import "./variable.scss";
 body {
-  font-family: "Nunito", sans-serif;
+  font-family: $nunito;
   height: 100vh;
   #root {
     min-height: 100%;
@@ -18,7 +19,6 @@ body {
   }
 }
 @import "./fonts.scss";
-@import "./variable.scss";
 @import "./mixin.scss";
 @import "./../components/Common/Loader/Loader.scss";
 @import "./../pages/404page/404.scss";
@@ -33,5 +33,7 @@ body {
 @import "../pages/plp/plp.scss";
 @import "../pages/plp/plp-filter/PlpFilter.scss";
 @import "../components/Common/Modal/Modal.scss";
+@import "../components/Common/Toast/Toast.scss";
 @import "../pages/plp/plp-filter/PlpSortFilter.scss";
 @import "../components/Mobile/Header/Header.scss";
+@import "../pages/plp/plp-filter/PlpFilterSection.scss";

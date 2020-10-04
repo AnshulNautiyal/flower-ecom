@@ -8,6 +8,7 @@
     width: 100%;
     box-shadow: 1px 1px 3px 0 rgba(19, 56, 80, 0.16);
     padding: 0 16px;
+    z-index: $header-z-index-10;
     ion-icon {
         font-size: 24px;
     }
@@ -16,6 +17,12 @@
     }
     div:nth-child(2){
        flex: 1; 
+    }
+    .resetNclose {
+        font-size: $ft1_2;
+        font-weight: bold;
+        line-height: 1.25;
+        color: $text-blue;
     }
     .headerContent {
         p {
