@@ -45,7 +45,16 @@ function plpReducer(state = {}, action) {
         plpSortedData: newFlowerData,
         plpSortByType: payload,
       };
-
+    case plp_action_type.PLP_FILTER:
+      return {
+        ...state,
+        plpFilterData: payload,
+      };
+    case plp_action_type.PLP_DATA_FETCH_FAIL:
+      return {
+        ...state,
+        plpFetchDataFail: payload,
+      };
     default:
       return {
         ...state,

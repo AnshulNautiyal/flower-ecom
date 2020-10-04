@@ -1,10 +1,46 @@
 .plpContainer {
     width: 100%;
-    margin-top: 80px;
+    margin-top: 60px;
     @include defaultFlex(row,flex-start,flex-start);
     flex-wrap: wrap;
     margin-bottom: 60px;
 
+    .plpBanner {
+        width: 100%;
+        height: 300px;
+        padding: 16px 5px;
+        border-radius: 10px;
+        &__image {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            &--text {
+                background-color: #0000008c;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                @include defaultFlex();
+
+                & > div {
+                    width: 70%;
+                    font-size: $ft1_4;
+                    font-weight: bold;
+                    line-height: 1.83;
+                    text-align: center;
+                    color: $text-white-color;
+                }
+            }
+        }
+    }
     .plpCardContainer {
         padding: 0 4px;
         // height: calc(100% - 50%);
@@ -19,7 +55,7 @@
             border-radius: 10px;
             overflow: hidden;
             font-size: 0;
-            background: linear-gradient(to right, #bdc3c7, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(to right, #bdc3c7, #2c3e5000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             margin-bottom: 20px;
             img {
                 display: block;
@@ -32,9 +68,9 @@
         .productDetail {
             
             position: relative;
-
+            font-size: 12px;
             p {
-            font-size: 16px;
+            
             line-height: 1.83;
             letter-spacing: 0.24px;
             text-align: left;
@@ -46,15 +82,17 @@
             padding: 0 10px;
             }
             .price-tag {
+                display: flex;
                 span:first-of-type {
                     font-weight: bold;
                     text-decoration:line-through;
                     margin-right: 10px;
                 }
-            }
-            .discount {
-                font-weight: bold;
-                color: $green;
+                .discount {
+                    margin-left: 10px;
+                    font-weight: bold;
+                    color: $green;
+                }
             }
             .colorVariant {
                 height: 100%;
