@@ -1,5 +1,6 @@
 import React from "react";
 import PlpSortFilter from "./PlpSortFilter";
+import PlpFilterSection from "./PlpFilterSection";
 
 const PlpFilter = ({ showModal, setModalContent, plpSortBy }) => {
   const handleClickEvent = (modalType = "", component = "") => () => {
@@ -10,7 +11,7 @@ const PlpFilter = ({ showModal, setModalContent, plpSortBy }) => {
     <div className="plpFilter">
       <div
         className="plpFilter__filter"
-        onClick={handleClickEvent("fullSpace")}
+        onClick={handleClickEvent("fullModal", <PlpFilterSection />)}
       >
         <ion-icon name="filter"></ion-icon>
         <span>Filter</span>
