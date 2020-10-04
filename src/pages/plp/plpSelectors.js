@@ -6,6 +6,9 @@ export const getPlpData = (state) => {
     plpheader = "",
     plpSortedData = [],
     plpSortByType = "",
+    plpBanner = "",
+    plpBannerSlogan = "",
+    plpFetchDataFail = "",
   } = plpData;
 
   const tempPlpData =
@@ -38,10 +41,21 @@ export const getPlpData = (state) => {
     productCard,
     numberOfItem,
     plpHeader: plpheader,
+    plpBanner,
+    plpBannerSlogan,
+    plpFetchDataFail,
   };
 };
 
 export const getModalState = (state) => {
   const { modalState = {} } = state;
   return modalState;
+};
+
+export const PlpFilterSelector = (state) => {
+  const { plpData: { plpFilterData = {}, numberOfItem = "" } = {} } = state;
+  return {
+    plpFilterData,
+    numberOfItem,
+  };
 };

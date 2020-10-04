@@ -3,8 +3,17 @@ import React from "react";
 const hostName = window.location.host;
 
 const getColoVariant = (colorVariant = []) => {
-  return colorVariant.map((item, index) => <div className="color" style={{backgroundColor : `${item.hex_code}`, zIndex : (colorVariant.length - index) }} />);
-}
+  return colorVariant.map((item, index) => (
+    <div
+      key={item.color_id}
+      className="color"
+      style={{
+        backgroundColor: `${item.hex_code}`,
+        zIndex: colorVariant.length - index,
+      }}
+    />
+  ));
+};
 const PlpCard = ({
   price = "",
   wasPrice = "",
@@ -23,17 +32,14 @@ const PlpCard = ({
       <div className="productDetail">
         <p className="description">{name}</p>
         <p className="price-tag">
-          {parseInt(price) < parseInt(wasPrice) && (
-            <span>Rs. {wasPrice}</span>
-          )}
+          {parseInt(price) < parseInt(wasPrice) && <span>Rs. {wasPrice}</span>}
           Rs. {price}
+          {parseInt(price) < parseInt(wasPrice) && (
+            <span className="discount">{discount}% off</span>
+          )}
         </p>
-        {parseInt(price) < parseInt(wasPrice) && (
-          <p className="discount">{discount}% off</p>
-        )}
-        <div className="colorVariant">
-        {getColoVariant(varient)}
-        </div>
+
+        <div className="colorVariant">{getColoVariant(varient)}</div>
       </div>
     </a>
   </div>
