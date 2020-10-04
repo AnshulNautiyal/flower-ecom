@@ -2,10 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import PlpFilter from "./plp-filter/PlpFilter";
 import Modal from "../../components/Common/Modal/Modal";
+import Toast from "../../components/Common/Toast/Toast";
 import PlpCard from "./PlpCard";
 import Header from "../../components/Mobile/Header/Header";
 import { noop } from "../../utils/defaultFunction";
-import getPlpData from "./plpApiCall";
+import { getPlpData } from "./plpApiCall";
 import * as plpSelectors from "./plpSelectors";
 import { showModal } from "../../components/Common/Modal/modal-action";
 import { plpSortBy } from "../../pages/plp/plp-action";
@@ -37,17 +38,36 @@ class Plp extends React.PureComponent {
       </div>
     );
   };
+
+  plpBannerElement = (plpBanner, plpBannerSlogan) => (
+    <div className="plpBanner">
+      <div className="plpBanner__image">
+        <img src={plpBanner} alt="Plp Banner" />
+        <div className="plpBanner__image--text">
+          <div>{plpBannerSlogan}</div>
+        </div>
+      </div>
+    </div>
+  );
   render() {
     const {
       plpData = {},
       showModal = noop,
       plpSortBy = noop,
       modalState: { type = "" } = {},
+      toastState: { toastShowOrHide = false } = {},
     } = this.props;
-    const { productCard = [] } = plpData;
+    const {
+      productCard = [],
+      plpBanner = "",
+      plpBannerSlogan = "",
+      plpFetchDataFail = "",
+    } = plpData;
     const { component = "" } = this.state;
 
-    const plpProductList = productCard.map((item) => <PlpCard {...item} />);
+    const plpProductList = productCard.map((item, index) => (
+      <PlpCard {...item} key={item.flower_id} />
+    ));
 
     const headerConfig = [
       {
@@ -67,13 +87,17 @@ class Plp extends React.PureComponent {
       <>
         <Header headerConfig={headerConfig} />
         <div className="plpContainer">
+          {plpBanner && this.plpBannerElement(plpBanner, plpBannerSlogan)}
           {plpProductList}
-          <PlpFilter
-            showModal={showModal}
-            setModalContent={this.setModalContent}
-            plpSortBy={plpSortBy}
-          />
+          {productCard.length ? (
+            <PlpFilter
+              showModal={showModal}
+              setModalContent={this.setModalContent}
+              plpSortBy={plpSortBy}
+            />
+          ) : null}
           <Modal type={type}>{component}</Modal>
+          {toastShowOrHide && <Toast message={plpFetchDataFail} />}
         </div>
       </>
     );
@@ -84,6 +108,7 @@ const mapStateToProps = (state) => {
   return {
     plpData: plpSelectors.getPlpData(state),
     modalState: plpSelectors.getModalState(state),
+    toastState: state.toastState,
   };
 };
 
