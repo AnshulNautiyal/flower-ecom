@@ -1,15 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { connect } from "react-redux";
 import PlpFilter from "./plp-filter/PlpFilter";
 import Modal from "../../components/Common/Modal/Modal";
 import Toast from "../../components/Common/Toast/Toast";
-import PlpCard from "./PlpCard";
 import Header from "../../components/Mobile/Header/Header";
+import PlpShimmer from "./PlpShimmer";
 import { noop } from "../../utils/defaultFunction";
 import { getPlpData } from "./plpApiCall";
 import * as plpSelectors from "./plpSelectors";
 import { showModal } from "../../components/Common/Modal/modal-action";
 import { plpSortBy } from "../../pages/plp/plp-action";
+const PlpCard = lazy(() => import("./PlpCard"));
 
 class Plp extends React.PureComponent {
   constructor() {
@@ -87,15 +88,17 @@ class Plp extends React.PureComponent {
       <>
         <Header headerConfig={headerConfig} />
         <div className="plpContainer">
-          {plpBanner && this.plpBannerElement(plpBanner, plpBannerSlogan)}
-          {plpProductList}
-          {productCard.length ? (
-            <PlpFilter
-              showModal={showModal}
-              setModalContent={this.setModalContent}
-              plpSortBy={plpSortBy}
-            />
-          ) : null}
+          <Suspense fallback={<PlpShimmer />}>
+            {plpBanner && this.plpBannerElement(plpBanner, plpBannerSlogan)}
+            {plpProductList}
+            {productCard.length ? (
+              <PlpFilter
+                showModal={showModal}
+                setModalContent={this.setModalContent}
+                plpSortBy={plpSortBy}
+              />
+            ) : null}
+          </Suspense>
           <Modal type={type}>{component}</Modal>
           {toastShowOrHide && <Toast message={plpFetchDataFail} />}
         </div>
