@@ -1,6 +1,7 @@
 import React from "react";
-
-const hostName = window.location.host;
+import { baseUrl } from "../../routes/Routes";
+const hostName = window.location.origin;
+const completePath = hostName + baseUrl;
 
 const getColoVariant = (colorVariant = []) => {
   return colorVariant.map((item, index) => (
@@ -25,7 +26,7 @@ const PlpCard = ({
   name = "",
 }) => (
   <div className="plpCardContainer" key={flower_id}>
-    <a href={`${hostName}/${redirect}`}>
+    <a href={`${completePath}${redirect}`}>
       <div className="image">
         <img src={imageUrl} alt={name} />
       </div>

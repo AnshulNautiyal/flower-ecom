@@ -1,0 +1,173 @@
+.pdpHeader {
+    @include defaultFlex(row, space-between);
+    & > div:nth-child(2) {
+        flex: unset;
+    }
+}
+
+.pdpContainer {
+    background-color: #f0f4f7;
+    height: 100%;
+    .carousel {
+        margin-top: 55px;
+        width: 100%;
+        height: 300px;
+        @include defaultFlex();
+        overflow: auto;
+
+        & > div {
+            width: 240px;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .pdpDesc {
+        padding: 12px 24px;
+        background-color: $text-white-color;
+        & > div {
+            font-size: 14px;
+            line-height: 1.43;
+            letter-spacing: 0.28px;
+            text-align: left;
+            color: #6d6d6d;
+        }
+        .brand {
+            font-weight: bold;
+            line-height: 1.57;
+            font-size: 16px;
+        }
+        .description {
+            margin-bottom: 10px;
+            @include textTruncate(2);
+        }
+        .priceSection {
+            @include defaultFlex(row, flex-start);
+            & > div {
+                margin-right: 10px;
+            }
+            .price {
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 1.5;
+                text-align: left;
+                color: #202020;
+            }
+            .wasPrice {
+                font-size: 16px;
+                line-height: 1.81;
+                text-align: left;
+                color: #6d6d6d;
+                text-decoration: line-through;
+            }
+            .discount {
+                font-size: 14px;
+                font-weight: bold;
+                line-height: 1.29;
+                letter-spacing: 0.28px;
+                text-align: left;
+                color: #00bf76;
+            }
+        }
+    }
+    .colors {
+        margin-top: 10px;
+        background-color: $text-white-color;
+        padding: 16px;
+        @include defaultFlex(column, center, flex-start);
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.38;
+            text-align: left;
+            color: #202020;
+            margin-bottom: 10px;
+        }
+        & > div {
+            @include defaultFlex(row, flex-start);
+
+            & > div {
+                margin-right: 10px;
+                width: 39px;
+                height: 39px;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+                border: solid 2px $text-white-color;
+                background-color: #ffffff;
+                border-radius: 100%;
+            }
+        }
+    }
+    .productDetail {
+        background-color: $text-white-color;
+        margin-top: 10px;
+        padding: 16px;
+        h2 {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.38;
+            text-align: left;
+            color: #202020;
+            margin-bottom: 16px;
+        }
+
+        & > div {
+            width: 340px;
+            height: 200px;
+            border-radius: 10px;
+            margin-top: 16px;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        & > p {
+            font-size: 11px;
+            line-height: 1.55;
+            letter-spacing: 0.22px;
+            text-align: left;
+            color: #202020;
+        }
+    }
+
+    .pdpButton {
+        @include defaultFlex(row, space-evenly);
+        padding: 10px 0;
+        box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.16);
+        position: sticky;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: $text-white-color;
+        button {
+            width: 45%;
+            height: 48px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 1.57;
+            letter-spacing: 0.42px;
+            text-align: center;
+
+            &:nth-of-type(1) {
+                @include defaultFlex();
+                color: $text-black-color;
+                border: solid 1px #202020;
+                background-color: $text-white-color;
+                ion-icon {
+                    font-size: 16px;
+                    font-weight: bold;
+                    margin-right: 5px;
+                }
+            }
+            &:nth-of-type(2) {
+                color: $text-white-color;
+                background-color: #202020;
+            }
+        }
+    }
+}

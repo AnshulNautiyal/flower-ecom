@@ -1,21 +1,11 @@
-@mixin defaultFlex(
-  $direction: row,
-  $justifyContent: center,
-  $alignItems: center
-) {
+@mixin defaultFlex($direction: row, $justifyContent: center, $alignItems: center) {
   display: flex;
   flex-direction: $direction;
   justify-content: $justifyContent;
   align-items: $alignItems;
 }
 
-@mixin defaultTextCss(
-  $fontFamily,
-  $fontSize,
-  $fontWeight,
-  $lineHeight,
-  $color
-) {
+@mixin defaultTextCss($fontFamily, $fontSize, $fontWeight, $lineHeight, $color) {
   font-family: $fontFamily;
   font-size: $fontSize;
   font-weight: $fontWeight;
@@ -25,4 +15,11 @@
 
 @mixin box-shadow($opacity: 0.1) {
   box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, $opacity);
+}
+
+@mixin textTruncate($lineNumber: 1) {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $lineNumber;
+  -webkit-box-orient: vertical;
 }
