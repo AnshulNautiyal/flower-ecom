@@ -3,7 +3,7 @@ import { plpReducer } from "../pages/plp/plp-reducer";
 import { modalReducer } from "../components/Common/Modal/modal-reducer";
 import { LoaderReducer } from "../components/Common/Loader/Loader-reducer";
 import { toastReducer } from "../components/Common/Toast/Toast-reducer";
-import { PdpReducer } from "../pages/pdp/Pdp-reducer";
+import { PdpReducer, PdpLocalStateReducer } from "../pages/pdp/Pdp-reducer";
 import thunk from "redux-thunk";
 
 export default function configureStore(initialState = {}) {
@@ -13,6 +13,7 @@ export default function configureStore(initialState = {}) {
     loaderState: LoaderReducer,
     toastState: toastReducer,
     pdpData: PdpReducer,
+    pdpLocalState: PdpLocalStateReducer,
   });
   const store = createStore(
     rootReducer,

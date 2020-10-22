@@ -25,3 +25,13 @@ export const getProductDescription = (state) => {
     details,
   };
 };
+
+export const getSelectedSize = (state) => {
+  const { pdpLocalState: { colorSelected = {} } = {} } = state;
+  return colorSelected;
+};
+
+export const colorNotSelectedInfo = (state) => {
+  const { pdpLocalState: { showAlertInfo = {} } = {} } = state;
+  return showAlertInfo;
+};

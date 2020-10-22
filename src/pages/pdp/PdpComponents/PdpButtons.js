@@ -5,13 +5,14 @@ const redirectToCart = () => {
   console.log(11);
   window.location = baseUrl + "cart";
 };
-const PdpButtons = () => {
+const PdpButtons = (props) => {
+  const { handleAddToBag } = props;
   return (
     <div className="pdpButton">
       <button onClick={redirectToCart}>
-        <ion-icon name="cart-outline"></ion-icon> Go to Cart
+        <ion-icon name="cart-outline"></ion-icon> Go to Bag
       </button>
-      <button>Add to Bag</button>
+      <button onClick={handleAddToBag}>Add to Bag</button>
     </div>
   );
 };

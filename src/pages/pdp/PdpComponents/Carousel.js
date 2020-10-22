@@ -1,11 +1,7 @@
 import React from "react";
 
 const getCarouselImage = (images) => {
-  return images.map((item) => (
-    <div>
-      <img src={item.imagePath} />
-    </div>
-  ));
+  return images.map((item) => <img src={item.imagePath} key={item.color_id} />);
 };
 const Carousel = (props) => {
   const { images = [] } = props;
@@ -13,7 +9,9 @@ const Carousel = (props) => {
     return null;
   }
   return (
-    <div className="carousel">{images.length && getCarouselImage(images)}</div>
+    <div className="carousel">
+      <div>{images.length && getCarouselImage(images)}</div>
+    </div>
   );
 };
 

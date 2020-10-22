@@ -8,6 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 @import "./variable.scss";
 body {
@@ -30,6 +31,7 @@ body {
 @import "../components/HomeComponents/NeedHelp/NeedHelp.scss";
 @import "../components/HomeComponents/Footer/Footer.scss";
 @import "../components/HomeComponents/ImageCarousel/ImageCarousel.scss";
+@import "../components/Common/Alert/Alert.scss";
 @import "../pages/plp/plp.scss";
 @import "../pages/plp/plp-filter/PlpFilter.scss";
 @import "../components/Common/Modal/Modal.scss";

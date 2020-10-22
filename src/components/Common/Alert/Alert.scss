@@ -1,0 +1,27 @@
+.alert {
+    width: 90%;
+    height: 25px;
+    background-color: $text-black-color;
+    margin: auto;
+    border-radius: 4px;
+    color: $text-white-color;
+    @include defaultFlex(row, flex-start);
+    padding-left: 10px;
+    font-size: 12px;
+    line-height: 1.67;
+    letter-spacing: 0.45px;
+    span {
+        margin-left: 10px;
+    }
+    position: relative;
+    &::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: -4px;
+        left: 20px;
+        background-color: $text-black-color;
+        transform: rotate(235deg);
+    }
+}
