@@ -1,4 +1,5 @@
 import React from "react";
+import 'lazysizes';
 import { baseUrl } from "../../routes/Routes";
 const hostName = window.location.origin;
 const completePath = hostName + baseUrl;
@@ -28,7 +29,7 @@ const PlpCard = ({
   <div className="plpCardContainer" key={flower_id}>
     <a href={`${completePath}${redirect}`}>
       <div className="image">
-        <img src={imageUrl} alt={name} />
+        <img data-src={imageUrl} alt={name} className="lazyload" />
       </div>
       <div className="productDetail">
         <p className="description">{name}</p>

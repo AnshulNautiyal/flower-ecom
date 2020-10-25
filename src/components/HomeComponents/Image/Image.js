@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const redirectTo = () => window.location.href =  window.location.href + 'c/83';
+const redirectTo = () => window.location.href =  window.location.href + '/c/83';
 
 export default function Image(props) {
     const {header ="", subhead="", button="" }  = props;
