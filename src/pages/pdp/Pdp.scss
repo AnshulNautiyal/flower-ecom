@@ -2,6 +2,21 @@
     @include defaultFlex(row, space-between);
     & > div:nth-child(2) {
         flex: unset;
+        .cartIcon {
+            position: relative;
+            &::after {
+                position: absolute;
+                content: attr(data-cart-item);
+                width: 14px;
+                height: 14px;
+                background-color: $error;
+                border-radius: 8px;
+                left: 15px;
+                text-align: center;
+                color: $text-white-color;
+                font-weight: bold;
+            }
+        }
     }
 }
 
@@ -88,7 +103,7 @@
             color: #202020;
             margin-bottom: 10px;
         }
-        & > div {
+        &__tiles {
             @include defaultFlex(row, flex-start);
 
             & > div {
@@ -104,6 +119,37 @@
                 transform: scale(1.1);
                 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
             }
+        }
+        &__quantity {
+            margin-top: 16px;
+            width: 300px;
+            @include defaultFlex(row, flex-start);
+            ion-icon {
+                font-size: $ft1_8;
+                --ionicon-stroke-width: 50px;
+            }
+
+            // ion-icon:first-child {
+            //     color: ;
+            // }
+            & > div {
+                width: 32px;
+                height: 32px;
+                margin: 0 8px;
+                border-radius: 4px;
+                box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+                border: solid 0.5px rgba(18, 18, 18, 0.1);
+                background-color: #ffffff;
+                @include defaultFlex;
+                font-size: $ft1_4;
+                font-weight: 700;
+            }
+        }
+        &__message {
+            font-size: $ft1_2;
+            line-height: 2.2;
+            letter-spacing: 0.2px;
+            color: $error;
         }
     }
     .productDetail {

@@ -35,3 +35,17 @@ export const colorNotSelectedInfo = (state) => {
   const { pdpLocalState: { showAlertInfo = {} } = {} } = state;
   return showAlertInfo;
 };
+
+export const getHttpMessage = (state) => {
+  const { httpMessage: { message = "" } = {} } = state;
+  return message;
+};
+
+export const getPdpCartItemsCount = state => {
+  const {
+    pdpData: {
+      pdpCartItemTotal = 0
+    } = {},
+  } = state;
+  return pdpCartItemTotal;
+}

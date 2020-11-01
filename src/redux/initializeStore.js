@@ -4,6 +4,7 @@ import { modalReducer } from "../components/Common/Modal/modal-reducer";
 import { LoaderReducer } from "../components/Common/Loader/Loader-reducer";
 import { toastReducer } from "../components/Common/Toast/Toast-reducer";
 import { PdpReducer, PdpLocalStateReducer } from "../pages/pdp/Pdp-reducer";
+import { httpMessageReducer } from "../redux/httpMessage";
 import thunk from "redux-thunk";
 
 export default function configureStore(initialState = {}) {
@@ -14,6 +15,7 @@ export default function configureStore(initialState = {}) {
     toastState: toastReducer,
     pdpData: PdpReducer,
     pdpLocalState: PdpLocalStateReducer,
+    httpMessage: httpMessageReducer,
   });
   const store = createStore(
     rootReducer,

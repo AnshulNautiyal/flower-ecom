@@ -6,17 +6,21 @@ import { selectColorAction, colorNotSelected } from "./Pdp-action";
 import { LoaderStateSelector } from "../../components/Common/Loader/Loader-selector";
 import * as pdpSelector from "./PdpSelectors";
 import Carousel from "./PdpComponents/Carousel";
+import Toast from "../../components/Common/Toast/Toast";
 import { Loader } from "../../components/Common/Loader/Loader";
 import PdpProductDescription from "./PdpComponents/PdpProductDescription";
 import PdpColorSelection from "./PdpComponents/PdpColorSelection";
 import ProductDetails from "./PdpComponents/ProductDetails";
 import PdpButtons from "./PdpComponents/PdpButtons";
 import Alert from "../../components/Common/Alert/Alert";
-import { PdpData } from "./PdpApiCall";
+import { PdpData, AddToCart } from "./PdpApiCall";
+import { createAnonymousToken } from "../../commonAjaxCall/createAnonymousToken";
+import { readCookies } from "../../utils/readBrowserCookies";
 
 const PDP_MESSAGE = {
   sizeNotSelected: "Please select color.",
 };
+
 const PdpContainer = (props) => {
   const {
     images = [],
@@ -29,6 +33,8 @@ const PdpContainer = (props) => {
     selectedColor,
     showAlertMessage,
     colorNotSelectedInfo,
+    addToCart,
+    httpMessage
   } = props;
 
   const { message = "", showHide = false } = colorNotSelectedInfo;
@@ -49,7 +55,7 @@ const PdpContainer = (props) => {
     });
   };
   const handleAddToBag = () => {
-    const { color_id = "" } = selectedColor;
+    const { color_id = "", quantity = "" } = selectedColor;
     if (!color_id) {
       window.scrollTo(0, colorSection.current.offsetTop - 100);
       showAlertMessage({
@@ -59,6 +65,22 @@ const PdpContainer = (props) => {
       return;
     }
     showLoader(true);
+    const A = readCookies("A");
+    if (A) {
+      addToCart({
+        token: A,
+        productId: color_id,
+        quantity,
+      });
+    } else {
+      createAnonymousToken(
+        {
+          productId: color_id,
+          quantity,
+        },
+        addToCart
+      );
+    }
   };
 
   return (
@@ -71,8 +93,10 @@ const PdpContainer = (props) => {
           colors={images}
           colorSelection={colorSelection}
           refProps={colorSection}
+          selectedColor={selectedColor}
         />
         {showHide && <Alert message={message} />}
+        {httpMessage && <Toast message={httpMessage} />}
         <ProductDetails
           productDetail={productDetail}
           images={images.length > 0 ? images[0] : {}}
@@ -89,6 +113,7 @@ const mapStateToProps = (state) => ({
   productDetail: pdpSelector.getProductDescription(state),
   selectedColor: pdpSelector.getSelectedSize(state),
   colorNotSelectedInfo: pdpSelector.colorNotSelectedInfo(state),
+  httpMessage: pdpSelector.getHttpMessage(state),
 });
 
 const mapDispatchToProps = (dispatch) => {
@@ -97,6 +122,7 @@ const mapDispatchToProps = (dispatch) => {
     showLoader: (bool) => dispatch(showLoader(bool)),
     selectColor: (colorDetail = {}) => dispatch(selectColorAction(colorDetail)),
     showAlertMessage: (object = {}) => dispatch(colorNotSelected(object)),
+    addToCart: (item) => dispatch(AddToCart(item)),
   };
 };
 

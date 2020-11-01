@@ -6,6 +6,11 @@ export const PdpReducer = (state = {}, action) => {
   switch (type) {
     case PDP_ACTION.pdpDataFetch:
       return payload;
+      case PDP_ACTION.cartTotalCount:
+        return {
+          ...state,
+          pdpCartItemTotal: payload
+        };
     default:
       return {
         ...state,
