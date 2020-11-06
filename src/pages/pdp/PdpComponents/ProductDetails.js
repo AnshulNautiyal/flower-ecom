@@ -11,7 +11,7 @@ const ProductDetails = (props) => {
       <h2>Product Details</h2>
       <p>{details}</p>
       <div>
-        <img src={imagePath} />
+       {imagePath && <img src={imagePath} /> }
       </div>
     </div>
   );

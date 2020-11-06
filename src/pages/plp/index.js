@@ -10,7 +10,8 @@ import { getPlpData } from "./plpApiCall";
 import * as plpSelectors from "./plpSelectors";
 import { showModal } from "../../components/Common/Modal/modal-action";
 import { plpSortBy } from "../../pages/plp/plp-action";
-const PlpCard = lazy(() => import("./PlpCard"));
+import PlpCard from './PlpCard';
+// const PlpCard = lazy(() => import("./PlpCard"));
 
 class Plp extends React.PureComponent {
   constructor() {
@@ -88,17 +89,16 @@ class Plp extends React.PureComponent {
       <>
         <Header headerConfig={headerConfig} />
         <div className="plpContainer">
-          <Suspense fallback={<PlpShimmer />}>
-            {plpBanner && this.plpBannerElement(plpBanner, plpBannerSlogan)}
-            {plpProductList}
-            {productCard.length ? (
-              <PlpFilter
-                showModal={showModal}
-                setModalContent={this.setModalContent}
-                plpSortBy={plpSortBy}
-              />
-            ) : null}
-          </Suspense>
+        {!productCard.length && <PlpShimmer />}
+          {plpBanner && this.plpBannerElement(plpBanner, plpBannerSlogan)}
+          {plpProductList}
+          {productCard.length ? (
+            <PlpFilter
+              showModal={showModal}
+              setModalContent={this.setModalContent}
+              plpSortBy={plpSortBy}
+            />
+          ) : null}
           <Modal type={type}>{component}</Modal>
           {toastShowOrHide && <Toast message={plpFetchDataFail} />}
         </div>

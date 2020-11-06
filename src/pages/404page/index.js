@@ -8,11 +8,11 @@ export const Page404 = () => {
         <picture className="pageNotFound__picture">
             <source 
                 media="(max-width:1000px)"
-                srcset={mobile404}
+                srcSet={mobile404}
             />
             <source 
                 media="(min-width:1001px)"
-                srcset={desktop404}
+                srcSet={desktop404}
             />
             <img src={desktop404} alt="404 page not found"/>
         </picture>

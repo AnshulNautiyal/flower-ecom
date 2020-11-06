@@ -190,7 +190,7 @@
         @include defaultFlex(row, space-evenly);
         padding: 10px 0;
         box-shadow: 0 -2px 6px 0 rgba(0, 0, 0, 0.16);
-        position: sticky;
+        position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;

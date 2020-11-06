@@ -6,7 +6,7 @@ const getCarouselImage = (images) => {
 const Carousel = (props) => {
   const { images = [] } = props;
   if (images.length === 0) {
-    return null;
+    return <div className="carousel"></div>;
   }
   return (
     <div className="carousel">
