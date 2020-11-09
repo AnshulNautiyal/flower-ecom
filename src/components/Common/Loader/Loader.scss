@@ -21,6 +21,7 @@
   left: 0;
   margin: 0 auto;
   display: block;
+  z-index: $loader-z-index-100;
 }
 .logo-loader span {
   width: 75px;

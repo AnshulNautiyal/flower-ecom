@@ -1,7 +1,7 @@
 .plpContainer {
     width: 100%;
     margin-top: 60px;
-    @include defaultFlex(row,flex-start,flex-start);
+    @include defaultFlex(row, flex-start, flex-start);
     flex-wrap: wrap;
     margin-bottom: 60px;
 
@@ -55,7 +55,11 @@
             border-radius: 10px;
             overflow: hidden;
             font-size: 0;
-            background: linear-gradient(to right, #bdc3c7, #2c3e5000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            background: linear-gradient(
+                to right,
+                #bdc3c7,
+                #2c3e5000
+            ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
             margin-bottom: 20px;
             img {
                 display: block;
@@ -66,26 +70,24 @@
             }
         }
         .productDetail {
-            
             position: relative;
             font-size: 12px;
             p {
-            
-            line-height: 1.83;
-            letter-spacing: 0.24px;
-            text-align: left;
-            color: #6d6d6d;
-            text-transform: capitalize;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
-            padding: 0 10px;
+                line-height: 1.83;
+                letter-spacing: 0.24px;
+                text-align: left;
+                color: #6d6d6d;
+                text-transform: capitalize;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                padding: 0 10px;
             }
             .price-tag {
                 display: flex;
                 span:first-of-type {
                     font-weight: bold;
-                    text-decoration:line-through;
+                    text-decoration: line-through;
                     margin-right: 10px;
                 }
                 .discount {
@@ -96,17 +98,17 @@
             }
             .colorVariant {
                 height: 100%;
-                @include defaultFlex(row,flex-start);
+                @include defaultFlex(row, flex-start);
                 margin-left: 16px;
                 .color {
                     width: 32px;
                     height: 32px;
                     border-radius: 100%;
                     border: solid 3px white;
-                    box-shadow: 0 1px 2px 0 rgba(0 ,0, 0, .15);
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
                     margin-left: -10px;
-                    transition: transform .2s;
-                    
+                    transition: transform 0.2s;
+
                     &:hover {
                         transform: scale(1.4);
                     }
@@ -119,10 +121,9 @@
         height: 100vh;
         width: 100%;
         &-b {
-            
             height: 100%;
             width: 100%;
-            &_m{
+            &_m {
                 height: 200px;
                 width: 95%;
                 margin: 0 auto;
@@ -132,11 +133,10 @@
             }
             &_p {
                 margin-top: 16px;
-                @include defaultFlex(row,space-evenly);
+                @include defaultFlex(row, space-evenly);
                 & > div {
                     width: 170px;
                     height: 280px;
-                    
 
                     .i {
                         height: 200px;
@@ -166,7 +166,7 @@
                         }
                         .clr {
                             background-color: transparent;
-                            @include defaultFlex(row,flex-start);
+                            @include defaultFlex(row, flex-start);
                             & > div {
                                 margin-right: 5px;
                                 width: 32px;
@@ -175,25 +175,23 @@
                                 background-color: #f0f4f7;
                             }
                         }
-
                     }
                 }
-                
             }
         }
         .animate {
-            animation : shimmer 2s linear infinite;
+            animation: shimmer 2s linear infinite;
             background: linear-gradient(to right, #f0f4f7 4%, #e1e9ef 25%, #f0f4f7 36%);
             background-size: 1000px 100%;
-         }
+        }
     }
-    
-     @keyframes shimmer {
+
+    @keyframes shimmer {
         0% {
-          background-position: -1000px 0;
+            background-position: -1000px 0;
         }
         100% {
-          background-position: 1000px 0;
+            background-position: 1000px 0;
         }
-      }
+    }
 }

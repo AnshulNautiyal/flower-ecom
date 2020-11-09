@@ -44,7 +44,7 @@ export const AddToCart = (item) => {
     dispatch(hideModal(false));
     if (reponse_status) {
       if (error_code === "-1" && token) {
-        document.cookie = `A=${token};`;
+        document.cookie = `A=${token}; path=/;`;
       }
       dispatch(cartTotalItem(items_in_cart));
       if (errorMessage === "success") {

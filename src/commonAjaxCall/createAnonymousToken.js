@@ -15,8 +15,8 @@ export const createAnonymousToken = async (object = {}, callback) => {
     } = ({} = {}),
   } = response;
   if (reponse_status) {
-    document.cookie = `A=${token};`;
-    document.cookie = `user_type=${user_type}; expires=${expiry_on};`;
+    document.cookie = `A=${token};expires=${new Date(expiry_on)}; path=/;`;
+    document.cookie = `user_type=${user_type};expires=${new Date(expiry_on)}; path=/;`;
   }
   // add token in object
   const finalData = {
