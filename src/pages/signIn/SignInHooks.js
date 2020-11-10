@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { readCookies } from "../../utils/readBrowserCookies";
+import { getQueryParameter } from "../../utils/QueryParameter";
 
 export const useSignInHook = () => {
   const [userName, setUserName] = useState("");
@@ -9,7 +11,7 @@ export const useSignInHook = () => {
   const [userNameValidation, handleUserNameValidation] = useState(false);
   const [showPassword, setPasswordVisibility] = useState("visibility_off");
   const [signInFail, setSignInFail] = useState(false);
-  const [signInFailMessage, setSignInFailMessage] = useState('');
+  const [signInFailMessage, setSignInFailMessage] = useState("");
 
   return {
     userName,
@@ -51,7 +53,6 @@ export const useSignInHook = () => {
       }
     },
     handleUserSignIn: async (e) => {
-
       if (!userName.length) {
         setErrorMessage({
           name: "Please enter your full name",
@@ -68,6 +69,7 @@ export const useSignInHook = () => {
       const userCredential = {
         userId: userName,
         password: userPassword,
+        token: readCookies("A") || "",
       };
       const headers = {
         "Content-Type": "application/json",
@@ -77,11 +79,25 @@ export const useSignInHook = () => {
 
       if (!userNameValidation) {
         const response = await axios.post(endPoint, userCredential, headers);
-        if(response.data.reponse_status ){
-          (window.location = "/");
-        }else {
+        const {
+          data: { reponse_status = "", error_code = "", data = {} } = {},
+        } = response;
+        const { token = "", user_type = "", expiry_on = "" } = data || {};
+        if (reponse_status) {
+          document.cookie = `A=${token};expires=${new Date(
+            expiry_on
+          )}; path=/;`;
+          document.cookie = `user_type=${user_type};expires=${new Date(
+            expiry_on
+          )}; path=/;`;
+
+          const referrer = getQueryParameter(window.location.search, "referrer");
+          window.location = referrer ? referrer : "/";
+        } else {
           setSignInFail(true);
-          setSignInFailMessage("Invalid Email/Phone number and Password combination");
+          setSignInFailMessage(
+            "Invalid Email/Phone number and Password combination"
+          );
         }
         setShowLoader(false);
       }

@@ -39,7 +39,7 @@
         &__button {
             @include defaultFlex(row, space-around);
             width: 100%;
-            button {
+            button, a {
                 width: 156px;
                 height: 48px;
                 border-radius: 8px;
@@ -49,7 +49,9 @@
                 font-size: $ft1_4;
             }
 
-            button:last-of-type {
+            button:last-of-type, a{
+                @include defaultFlex();
+                text-decoration: none;
                 background-color: $text-black-color;
                 color: $text-white-color;
             }

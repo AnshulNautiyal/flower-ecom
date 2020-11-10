@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import { getQueryParameter } from "../../utils/QueryParameter";
+import { readCookies } from "../../utils/readBrowserCookies";
 
 export const useSignUpHook = () => {
   const [userName, setUserName] = useState("");
@@ -71,7 +73,6 @@ export const useSignUpHook = () => {
     handlePasswordValidation: (e) => {
       const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
       const passValidate = passwordRegex.test(userPassword);
-      console.log(passValidate)
       if (passValidate) {
         setPasswordValidation(false);
       } else {
@@ -115,6 +116,7 @@ export const useSignUpHook = () => {
           phone: userPhone,
           email: userEmail,
           password: userPassword,
+          token: readCookies("A") || "",
         };
         const headers = {
           "Content-Type": "application/json",
@@ -123,7 +125,25 @@ export const useSignUpHook = () => {
         };
 
         const response = await axios.post(endPoint, userCredential, headers);
-        response.data.reponse_status && (window.location = "/");
+        const {
+          data: { reponse_status = "", error_code = "", data = {} } = {},
+        } = response;
+        const { token = "", user_type = "", expiry_on = "" } = data || {};
+        if (reponse_status) {
+          document.cookie = `A=${token};expires=${new Date(
+            expiry_on
+          )}; path=/;`;
+          document.cookie = `user_type=${user_type};expires=${new Date(
+            expiry_on
+          )}; path=/;`;
+
+          const referrer = getQueryParameter(
+            window.location.search,
+            "referrer"
+          );
+          window.location = referrer ? referrer : "/";
+        }
+
         setShowLoader(false);
       }
     },

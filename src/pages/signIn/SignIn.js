@@ -37,7 +37,7 @@ const SignIn = (props) => {
   const { location: { search = "" } = {} } = props;
   const referrer = getQueryParameter(search, "referrer");
 
-  if (readCookies("A") && readCookies("user_type")) {
+  if (readCookies("A") && readCookies("user_type") === "L") {
     return <Redirect to={referrer ? referrer : "/"} />;
   }
 
@@ -50,7 +50,7 @@ const SignIn = (props) => {
             className="icon-arrow-left2"
             onClick={handleBackNavigation}
           ></span>
-          <Link to="/signup">Create Account</Link>
+          <Link to={`/signup${search}`}>Create Account</Link>
         </div>
         <h1>Sign In</h1>
         <div className="signIn__logo"></div>

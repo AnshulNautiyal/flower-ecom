@@ -113,7 +113,7 @@ const Cart = (props) => {
     <div className="cartPage">
       <Header headerConfig={headerConfig} classProp="cartHeader" />
       {loaderState && <Loader />}
-      {toggleShimmer && <CartShimmer />}
+      {!token || toggleShimmer && <CartShimmer />}
       {!token || isBagEmpty ? <BagEmpty /> : null}
       {cartItem.length ? (
         <CartContainer
@@ -129,6 +129,7 @@ const Cart = (props) => {
         cartOrderDetails={cartOrderDetails}
         scrollToOrderDetail={scrollToOrderDetail}
         refProps={orderDetailSection}
+        isBagEmpty={isBagEmpty}
       />
       <Modal type={type}>{component}</Modal>
     </div>
