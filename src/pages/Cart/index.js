@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import Header from "../../components/Mobile/Header/Header";
 import Modal from "../../components/Common/Modal/Modal";
+import { baseUrl } from "../../routes/Routes";
 import { CartContainer } from "./CartContainer";
 import { PlaceOrder } from "./PlaceOrder";
 import { CartOrderDetails } from "./CartOrderDetails";
@@ -108,6 +109,13 @@ const Cart = (props) => {
       />
     );
   };
+  const redirectToCart  = () => {
+    if (readCookies("A") && readCookies("user_type") !== "L") {
+      window.location.href = "signin?referrer=/shipping";
+      return;
+    }
+    window.location.href = baseUrl + "shipping";
+  }
 
   return (
     <div className="cartPage">
@@ -130,6 +138,8 @@ const Cart = (props) => {
         scrollToOrderDetail={scrollToOrderDetail}
         refProps={orderDetailSection}
         isBagEmpty={isBagEmpty}
+        redirectToCart={redirectToCart}
+        cartItemCount={cartItem.length}
       />
       <Modal type={type}>{component}</Modal>
     </div>

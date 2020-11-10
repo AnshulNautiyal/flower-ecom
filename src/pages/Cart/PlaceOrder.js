@@ -2,19 +2,17 @@ import React from "react";
 import { baseUrl } from "../../routes/Routes";
 import { readCookies } from "../../utils/readBrowserCookies";
 
-const redirectToCart = () => {
-  window.location.href = baseUrl + "shipping";
-};
-
 export const PlaceOrder = (props) => {
   const {
     cartOrderDetails: { total_amount = "" } = {},
     refProps,
     scrollToOrderDetail,
     isBagEmpty,
+    redirectToCart,
+    cartItemCount
   } = props;
   const token = readCookies("A");
-  const btnDisable = isBagEmpty || !token ? true : false;
+  const btnDisable = isBagEmpty || !token || cartItemCount === 0 ? true : false;
   return (
     <div className="placeOrder" ref={refProps}>
       <div className="cartFinalPrice">
