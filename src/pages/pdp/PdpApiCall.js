@@ -54,7 +54,7 @@ export const AddToCart = (item) => {
       }
     } else {
       if (error_code === "-2" && token) {
-        document.cookie = `A="";`;
+        document.cookie = `A=""; path=/;`;
         window.location.href = `${window.location.hostname}/${baseUrl}/signin?referrer=${window.location.pathname}`;
       } else {
         // show toast message

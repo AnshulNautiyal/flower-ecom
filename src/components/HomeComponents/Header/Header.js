@@ -5,7 +5,8 @@ export default function Header() {
     <div className="header-section">
       <h1>Flower</h1>
       <p>
-        <a href="/signin">SignIn</a>/<a href="/signup">SignUp</a>
+        <a href="/signin?referrer=/">SignIn</a>/
+        <a href="/signup?referrer=/">SignUp</a>
       </p>
     </div>
   );

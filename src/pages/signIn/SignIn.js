@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect, withRouter } from "react-router-dom";
 import { useSignInHook } from "./SignInHooks";
 import { Loader } from "../../components/Common/Loader/Loader";
+import { readCookies } from "../../utils/readBrowserCookies";
+import { getQueryParameter } from "../../utils/QueryParameter";
 
 // Add show password functionality and forgot password link
-export const SignIn = () => {
+const SignIn = (props) => {
   const {
     userName,
     userPassword,
@@ -29,12 +31,15 @@ export const SignIn = () => {
   );
 
   const sigInInFailMessage = signInFail && (
-    <div className="signInError">
-      {signInFailMessage}
-    </div>
+    <div className="signInError">{signInFailMessage}</div>
   );
 
+  const { location: { search = "" } = {} } = props;
+  const referrer = getQueryParameter(search, "referrer");
 
+  if (readCookies("A") && readCookies("user_type")) {
+    return <Redirect to={referrer ? referrer : "/"} />;
+  }
 
   return (
     <>
@@ -78,7 +83,9 @@ export const SignIn = () => {
               value={userPassword}
               onChange={handleUserPassword}
               className={`signIn__form--password
-          ${userNameValidation || errorMessage.password ? "invalidUserName" : ""}
+          ${
+            userNameValidation || errorMessage.password ? "invalidUserName" : ""
+          }
           `}
             />
             {userPassword.length ? (
@@ -100,3 +107,5 @@ export const SignIn = () => {
     </>
   );
 };
+
+export default withRouter(SignIn);
