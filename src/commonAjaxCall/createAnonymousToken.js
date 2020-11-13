@@ -10,9 +10,9 @@ export const createAnonymousToken = async (object = {}, callback) => {
   const response = await axios.post(commonApi.createAnonymousToken);
   const {
     data: {
-      data: { token = "", user_type = "", expiry_on = "" },
+      data: { token = "", user_type = "", expiry_on = "" } = {},
       reponse_status = false,
-    } = ({} = {}),
+    } = {},
   } = response;
   if (reponse_status) {
     document.cookie = `A=${token};expires=${new Date(expiry_on)}; path=/;`;

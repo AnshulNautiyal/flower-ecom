@@ -12,8 +12,6 @@ import { BrowserComponent } from "./../components/BrowserComponent";
 import {
   BrowserView,
   MobileView,
-  isBrowser,
-  isMobile,
 } from "react-device-detect";
 
 export const baseUrl = "/flower/client/";

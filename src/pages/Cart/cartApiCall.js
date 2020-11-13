@@ -9,7 +9,6 @@ import {
   setBagEmpty,
 } from "./cart-action";
 import {
-  showModal,
   hideModal,
 } from "../../components/Common/Modal/modal-action";
 
@@ -18,7 +17,7 @@ export const getCartItem = () => {
     const token = readCookies("A");
     const response = await axios.post(cartApi.getCartData, { token });
     const {
-      data: { reponse_status = "", error_code = "", data = {} } = {},
+      data: { reponse_status = "", data = {} } = {},
     } = response;
     const { items_in_cart = "", order_details = {}, cart_items = [] } =
       data || {};
@@ -46,7 +45,7 @@ export const removeCartItem = (id) => {
       cart_item_id: id,
     });
     const {
-      data: { reponse_status = "", error_code = "", data = {} } = {},
+      data: { reponse_status = "", data = {} } = {},
     } = response;
     const { items_in_cart = "", order_details = {}, cart_items = [] } =
       data || {};

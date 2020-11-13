@@ -21,7 +21,7 @@ export const getCartCount = () => {
     const A = readCookies("A");
     const response = await axios.post(pdpApi.pdpCartCount, { token: A });
     const {
-      data: { reponse_status = "", error_code = "", data = {} } = {},
+      data: { reponse_status = "", data = {} } = {},
     } = response;
     const { items_in_cart = "" } = data || {};
     reponse_status && dispatch(cartTotalItem(items_in_cart));

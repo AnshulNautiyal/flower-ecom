@@ -9,7 +9,7 @@ export const CartContainer = (props) => {
           <div className="cardDetails">
             <div className="cardImage animate">
               <a href={item.redirect}>
-                <img src={item.imagePath} />
+                <img src={item.imagePath} alt="Cart Items"/>
               </a>
             </div>
             <div className="cardInfo">

@@ -9,7 +9,7 @@ export const BagEmpty = () => {
     <div className="bagEmpty">
       <div className="bagEmpty__message">
         <div className="bagEmptyImage">
-          <img src={bagImage} />
+          <img src={bagImage} alt="Bag is Empty"/>
         </div>
         <h2>Your bag is empty</h2>
         {token ? (

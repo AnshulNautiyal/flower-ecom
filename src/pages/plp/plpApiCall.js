@@ -34,7 +34,7 @@ function getPlpData({
       dispatch(getPlpProductAction(data));
       dispatch(hideModal(false));
     } else {
-      const { data: { errorMessage = "", subMessage = "" } = {} } = response;
+      const { data: { errorMessage = ""} = {} } = response;
       dispatch(showToast());
       dispatch(plpFetchDataFail(`${errorMessage}.`));
       setTimeout(() => dispatch(hideToast()), 5000);

@@ -1,5 +1,4 @@
 import React from "react";
-import { baseUrl } from "../../routes/Routes";
 import { readCookies } from "../../utils/readBrowserCookies";
 
 export const PlaceOrder = (props) => {

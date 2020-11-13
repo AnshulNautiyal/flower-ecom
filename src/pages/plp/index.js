@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import PlpFilter from "./plp-filter/PlpFilter";
 import Modal from "../../components/Common/Modal/Modal";
