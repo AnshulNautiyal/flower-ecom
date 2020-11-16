@@ -51,7 +51,7 @@ const Cart = (props) => {
 
   const [component, setComponent] = useState("");
   const [anyOneItemOutOfStock, setAnyOneItemOutOfStock] = useState(false);
-  const [totalItemOos, setTotalItemOos] = useState(0);
+  const [totalItemInStock, setTotalItemInStock] = useState(0);
 
   useEffect(() => {
     cartShimmer(true);
@@ -60,28 +60,39 @@ const Cart = (props) => {
 
   useEffect(() => {
     const cartLength = cartItem.length;
-    let counter = 0;
+    let counter = 0,
+      flag = 0;
     if (cartLength) {
       // check any one item is OOS in cart
       for (let i = 0; i < cartLength; i++) {
         if (!cartItem[i].in_stock) {
-          setAnyOneItemOutOfStock(true);
+          flag = 1;
           break;
         }
       }
-      
+      if (flag) {
+        setAnyOneItemOutOfStock(true);
+      } else {
+        setAnyOneItemOutOfStock(false);
+      }
+
       for (let i = 0; i < cartLength; i++) {
         if (cartItem[i].in_stock) {
           counter++;
         }
       }
-      setTotalItemOos(counter);
-    }
-    if (counter === 1) {
-      let style = getComputedStyle(document.body);
-      document.documentElement.style.setProperty('--cart-order-details-margin','500px');
+      setTotalItemInStock(counter);
     }
   }, [cartItem]);
+
+  useEffect(() => {
+    if (totalItemInStock === 1 && anyOneItemOutOfStock) {
+      document.documentElement.style.setProperty(
+        "--cart-order-details-margin",
+        "500px"
+      );
+    }
+  }, [totalItemInStock, anyOneItemOutOfStock]);
 
   const headerConfig = [
     {
