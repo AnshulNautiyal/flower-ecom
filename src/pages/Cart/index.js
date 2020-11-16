@@ -28,6 +28,7 @@ import { Loader } from "../../components/Common/Loader/Loader";
 import CartShimmer from "./CartShimmer";
 import { RemoveItemModal } from "./RemoveItemModal";
 import { UpdateQuantity } from "./UpdateQuantity";
+import { OutOfStock } from "./OutOfStock";
 
 const Cart = (props) => {
   const {
@@ -49,11 +50,38 @@ const Cart = (props) => {
   const orderDetailSection = useRef(null);
 
   const [component, setComponent] = useState("");
+  const [anyOneItemOutOfStock, setAnyOneItemOutOfStock] = useState(false);
+  const [totalItemOos, setTotalItemOos] = useState(0);
 
   useEffect(() => {
     cartShimmer(true);
     token && getCartItem();
   }, []);
+
+  useEffect(() => {
+    const cartLength = cartItem.length;
+    let counter = 0;
+    if (cartLength) {
+      // check any one item is OOS in cart
+      for (let i = 0; i < cartLength; i++) {
+        if (!cartItem[i].in_stock) {
+          setAnyOneItemOutOfStock(true);
+          break;
+        }
+      }
+      
+      for (let i = 0; i < cartLength; i++) {
+        if (cartItem[i].in_stock) {
+          counter++;
+        }
+      }
+      setTotalItemOos(counter);
+    }
+    if (counter === 1) {
+      let style = getComputedStyle(document.body);
+      document.documentElement.style.setProperty('--cart-order-details-margin','500px');
+    }
+  }, [cartItem]);
 
   const headerConfig = [
     {
@@ -97,7 +125,6 @@ const Cart = (props) => {
   };
 
   const openUpdateQuantityModal = (qty, colorCode, colorName, cartId) => () => {
-    console.log(qty,colorName)
     showModal("drawer");
     setComponent(
       <UpdateQuantity
@@ -109,25 +136,29 @@ const Cart = (props) => {
       />
     );
   };
-  const redirectToCart  = () => {
+  const redirectToCart = () => {
     if (readCookies("A") && readCookies("user_type") !== "L") {
       window.location.href = "signin?referrer=/shipping";
       return;
     }
     window.location.href = baseUrl + "shipping";
-  }
+  };
 
   return (
     <div className="cartPage">
       <Header headerConfig={headerConfig} classProp="cartHeader" />
       {loaderState && <Loader />}
-      {!token || toggleShimmer && <CartShimmer />}
+      {!token || (toggleShimmer && <CartShimmer />)}
       {!token || isBagEmpty ? <BagEmpty /> : null}
+      {anyOneItemOutOfStock ? (
+        <OutOfStock cartItem={cartItem} handelRemoveCart={handelRemoveCart} />
+      ) : null}
       {cartItem.length ? (
         <CartContainer
           cartItem={cartItem}
           openRemoveCartModal={openRemoveCartModal}
           openUpdateQuantityModal={openUpdateQuantityModal}
+          anyOneItemOutOfStock={anyOneItemOutOfStock}
         />
       ) : null}
       {cartItem.length ? (
@@ -140,6 +171,7 @@ const Cart = (props) => {
         isBagEmpty={isBagEmpty}
         redirectToCart={redirectToCart}
         cartItemCount={cartItem.length}
+        anyOneItemOutOfStock={anyOneItemOutOfStock}
       />
       <Modal type={type}>{component}</Modal>
     </div>
@@ -165,7 +197,8 @@ function mapDispatchToProps(dispatch) {
     showModal: (modalType = "") => dispatch(showModal(modalType)),
     hideModal: (modalType = "") => dispatch(hideModal(modalType)),
     removeCartItem: (id) => dispatch(removeCartItem(id)),
-    updateQuantityCall: (id,quantity) => dispatch(updateQuantityCall(id,quantity)),
+    updateQuantityCall: (id, quantity) =>
+      dispatch(updateQuantityCall(id, quantity)),
   };
 }
 

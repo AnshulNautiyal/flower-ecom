@@ -8,10 +8,14 @@ export const PlaceOrder = (props) => {
     scrollToOrderDetail,
     isBagEmpty,
     redirectToCart,
-    cartItemCount
+    cartItemCount,
+    anyOneItemOutOfStock,
   } = props;
   const token = readCookies("A");
-  const btnDisable = isBagEmpty || !token || cartItemCount === 0 ? true : false;
+  const btnDisable =
+    isBagEmpty || !token || cartItemCount === 0 || anyOneItemOutOfStock
+      ? true
+      : false;
   return (
     <div className="placeOrder" ref={refProps}>
       <div className="cartFinalPrice">

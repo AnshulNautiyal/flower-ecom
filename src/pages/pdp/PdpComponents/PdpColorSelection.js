@@ -16,7 +16,7 @@ const PdpColorSelection = (props) => {
         ...currentSelectedColor,
         quantity,
       });
-  }, [quantity, currentSelectedColor, selectedColor, colorSelection]); // update the selected color quantity in redux also to get latest quantity in parent component
+  }, [quantity, currentSelectedColor]); // update the selected color quantity in redux also to get latest quantity in parent component
 
   //  custom function
   const updateQty = (type, item = {}) => () => {

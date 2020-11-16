@@ -1,15 +1,23 @@
 import React from "react";
 
 export const CartContainer = (props) => {
-  const { cartItem = [], openRemoveCartModal, openUpdateQuantityModal } = props;
+  const {
+    cartItem = [],
+    openRemoveCartModal,
+    openUpdateQuantityModal,
+    anyOneItemOutOfStock,
+  } = props;
   const getCartItemCard = (cartItem = []) => {
     return cartItem.map((item, index) => {
+      if (!item.in_stock) {
+        return null;
+      }
       return (
         <div className="cartCard">
           <div className="cardDetails">
             <div className="cardImage animate">
               <a href={item.redirect}>
-                <img src={item.imagePath} alt="Cart Items"/>
+                <img src={item.imagePath} alt="Cart Items" />
               </a>
             </div>
             <div className="cardInfo">
@@ -61,7 +69,7 @@ export const CartContainer = (props) => {
   };
 
   return (
-    <div className="cartProductCardSection">
+    <div className={`cartProductCardSection ${ anyOneItemOutOfStock ? "" : "addPadding" }`}>
       <div className="cartItemContainer">{getCartItemCard(cartItem)}</div>
     </div>
   );

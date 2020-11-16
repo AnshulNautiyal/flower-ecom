@@ -1,441 +1,609 @@
 .cartHeader {
-    .cartStep {
-        font-family: $nunito;
-        font-size: $ft1_2;
-        line-height: 1.83;
-        letter-spacing: 0.24px;
-        text-align: left;
-        & > div:first-child {
-            color: $lite-gray;
-        }
-        & > div:last-child {
-            color: $text-black-color;
-            font-weight: bold;
-        }
+  .cartStep {
+    font-family: $nunito;
+    font-size: $ft1_2;
+    line-height: 1.83;
+    letter-spacing: 0.24px;
+    text-align: left;
+    & > div:first-child {
+      color: $lite-gray;
     }
+    & > div:last-child {
+      color: $text-black-color;
+      font-weight: bold;
+    }
+  }
 }
 
 .cartPage {
-    height: 100vh;
+  height: 100vh;
+  background-color: $lite-blue;
+
+  .bagEmpty {
+    height: 100%;
+    @include defaultFlex(column);
+    &__message {
+      @include defaultFlex(column);
+      height: 60%;
+      .bagEmptyImage {
+        margin-bottom: 10px;
+      }
+      h2 {
+        margin-bottom: 10px;
+        font-size: $ft2;
+      }
+      p {
+        font-size: $ft1_4;
+      }
+    }
+    &__button {
+      @include defaultFlex(row, space-around);
+      width: 100%;
+      button,
+      a {
+        width: 156px;
+        height: 48px;
+        border-radius: 8px;
+        border: solid 0.5px #202020;
+        background-color: $text-white-color;
+        font-weight: bold;
+        font-size: $ft1_4;
+      }
+
+      button:last-of-type,
+      a {
+        @include defaultFlex();
+        text-decoration: none;
+        background-color: $text-black-color;
+        color: $text-white-color;
+      }
+    }
+  }
+
+  .cartProductCardSection {
     background-color: $lite-blue;
 
-    .bagEmpty {
-        height: 100%;
-        @include defaultFlex(column);
-        &__message {
-            @include defaultFlex(column);
-            height: 60%;
-            .bagEmptyImage {
-                margin-bottom: 10px;
-            }
-            h2 {
-                margin-bottom: 10px;
-                font-size: $ft2;
-            }
-            p {
-                font-size: $ft1_4;
-            }
-        }
-        &__button {
-            @include defaultFlex(row, space-around);
-            width: 100%;
-            button, a {
-                width: 156px;
-                height: 48px;
-                border-radius: 8px;
-                border: solid 0.5px #202020;
-                background-color: $text-white-color;
-                font-weight: bold;
-                font-size: $ft1_4;
-            }
-
-            button:last-of-type, a{
-                @include defaultFlex();
-                text-decoration: none;
-                background-color: $text-black-color;
-                color: $text-white-color;
-            }
-        }
-    }
-
-    .cartProductCardSection {
-        background-color: $lite-blue;
-        padding-top: 70px;
-        min-height: calc(100% - 225px);
-        .cartItemContainer {
-            @include defaultFlex(column);
-            .cartCard {
-                margin: auto 16px;
-                margin-bottom: 20px;
-                width: 92%;
-                box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
-                height: 170px;
-                background-color: $text-white-color;
-                border: none;
-                border-radius: 8px;
-
-                .cardDetails {
-                    margin: 8px;
-                    padding-bottom: 8px;
-                    border-bottom: 1px solid #f3f3f3;
-                    @include defaultFlex(row, flex-start, flex-start);
-                    .cardImage {
-                        flex-grow: 0;
-                        flex-shrink: 0;
-                        flex-basis: 100px;
-                        height: 120px;
-                        border-radius: 8px;
-                        overflow: hidden;
-                        margin-right: 16px;
-                        img {
-                            width: 100%;
-                            height: 100%;
-                        }
-                    }
-                    .animate {
-                        animation: shimmer 1.5s linear infinite;
-                        background: linear-gradient(to right, #f0f4f7 4%, #e1e9ef 25%, #f0f4f7 36%);
-                        background-size: 1000px 100%;
-                    }
-                    .cardInfo {
-                        font-size: 12px;
-                        font-weight: bold;
-                        line-height: 1.83;
-                        text-align: left;
-                        color: $lite-gray;
-                        .itemDescription {
-                            font-weight: 400;
-                            @include textTruncate();
-                        }
-                        .itemColorQty {
-                            @include defaultFlex(row, flex-start);
-                            margin-top: 5px;
-                            .cartColor {
-                                width: 22px;
-                                height: 22px;
-                                border-radius: 50%;
-                                border: 2px solid $text-white-color;
-                                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
-                                margin-right: 5px;
-                            }
-                            .colorQty {
-                                margin-left: 10px;
-                                width: 50px;
-                                background-color: $lite-blue;
-                                @include defaultFlex(row, space-evenly);
-                                border-radius: 4px;
-                                color: $text-black-color;
-                                span {
-                                    font-size: 10px;
-                                    line-height: 2.2;
-                                    letter-spacing: 0.2px;
-                                    color: $lite-gray;
-                                }
-                            }
-                        }
-                        .priceSection {
-                            margin-top: 10px;
-                            span {
-                                margin-right: 5px;
-                            }
-                            span:first-of-type {
-                                color: $text-black-color;
-                            }
-                            span:nth-child(2) {
-                                font-weight: 400;
-                                text-decoration: line-through;
-                            }
-                            span:last-of-type {
-                                color: $green;
-                                font-weight: 400;
-                            }
-                        }
-                        .saving {
-                            font-weight: 400;
-                            color: $green;
-                            span {
-                                font-weight: bold;
-                                letter-spacing: 1px;
-                            }
-                        }
-                    }
-                }
-                .cardRemove {
-                    @include defaultFlex(row, space-between);
-                    margin: 0 8px;
-                    font-size: 12px;
-                    font-weight: bold;
-                    line-height: 1.25;
-                    text-align: right;
-
-                    div:first-of-type {
-                        font-weight: 400;
-                        color: $lite-gray;
-                    }
-                    div:last-of-type {
-                        color: $text-blue;
-                    }
-                }
-            }
-        }
-    }
-
-    .cartOrderDetails {
+    min-height: calc(100% - var(--cart-order-details-margin));
+    .cartItemContainer {
+      @include defaultFlex(column);
+      .cartCard {
+        margin: auto 16px;
+        margin-bottom: 20px;
+        width: 92%;
+        box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
+        height: 170px;
         background-color: $text-white-color;
-        margin-bottom: 50px;
-        padding: 25px 16px;
-        position: relative;
-        .cartBubble {
-            position: absolute;
-            height: 5px;
-            width: 90%;
-            top: -2px;
-            @include defaultFlex();
-            & > div {
-                width: 12px;
-                height: 12px;
-                border-radius: 100%;
-                margin-right: 10px;
-                background-color: $lite-blue;
+        border: none;
+        border-radius: 8px;
+
+        .cardDetails {
+          margin: 8px;
+          padding-bottom: 8px;
+          border-bottom: 1px solid #f3f3f3;
+          @include defaultFlex(row, flex-start, flex-start);
+          .cardImage {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: 100px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 16px;
+            img {
+              width: 100%;
+              height: 100%;
             }
-        }
-        h2 {
-            margin-bottom: 10px;
-        }
-        .price {
-            font-size: $ft1_2;
-            @include defaultFlex(row, space-between);
+          }
+          .animate {
+            animation: shimmer 1.5s linear infinite;
+            background: linear-gradient(
+              to right,
+              #f0f4f7 4%,
+              #e1e9ef 25%,
+              #f0f4f7 36%
+            );
+            background-size: 1000px 100%;
+          }
+          .cardInfo {
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1.83;
+            text-align: left;
             color: $lite-gray;
-            margin-bottom: 10px;
-        }
-        .price.saving > div {
-            color: $green;
-        }
-        .price.totalAmount > div {
-            font-size: $ft1_4;
-            font-weight: bold;
-            color: $text-black-color;
-        }
-        .price.totalAmount {
-            margin-bottom: 0;
-        }
-    }
-
-    .placeOrder {
-        position: fixed;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 65px;
-        box-shadow: 0 -3px 6px 0 rgba(19, 56, 80, 0.16);
-        padding: 0 10px;
-        @include defaultFlex(row, space-between);
-        background-color: $text-white-color;
-
-        .cartFinalPrice {
-            & > div:first-child {
-                font-size: $ft1_8;
-                font-weight: bold;
-                text-align: left;
-                color: $text-black-color;
+            .itemDescription {
+              font-weight: 400;
+              @include textTruncate();
             }
-            & > div:last-child {
-                font-size: $ft1_4;
-                font-weight: bold;
-                text-align: left;
-                color: $text-blue;
-            }
-        }
-        .placeOrderBtn {
-            @include defaultFlex();
-            width: 215px;
-            height: 48px;
-            border-radius: 8px;
-            background-color: $text-black-color;
-            color: $text-white-color;
-            font-size: $ft1_4;
-            font-weight: bold;
-            text-align: center;
-            border: none;
-            &:disabled {
-                color: $disable-text;
-                background-color: $disable-btn;
-            }
-        }
-    }
-
-    .cartShimmer {
-        height: 100vh;
-        width: 100%;
-
-        padding-top: 65px;
-        @include defaultFlex(column);
-        .cpc {
-            width: 344px;
-            height: 173px;
-            border-radius: 8px;
-            background-color: $text-white-color;
-            margin: auto;
-            padding-top: 8px;
-
-            .ci {
-                margin: 8px;
-                margin-top: 0;
-                @include defaultFlex(row, flex-start, flex-start);
-                .i {
-                    width: 86px;
-                    height: 105px;
-                    border-radius: 7px;
-                    background-color: #f0f4f7;
-                }
-                .cc {
-                    // width: 100%;
-                    // height: 100%;
-                    margin-left: 20px;
-                    & > div {
-                        background-color: #f0f4f7;
-                        margin-bottom: 5px;
-                        border-radius: 4px;
-                    }
-                    & > div:nth-child(1) {
-                        width: 100px;
-                        height: 20px;
-                    }
-                    & > div:nth-child(2) {
-                        width: 140px;
-                        height: 20px;
-                    }
-                    & > div:nth-child(3) {
-                        width: 80px;
-                        height: 20px;
-                    }
-                }
-            }
-        }
-        .cr {
-            @include defaultFlex(row, space-between);
-            margin: 20px 8px;
-            & > div {
-                width: 100px;
-                height: 20px;
-                background-color: #f0f4f7;
+            .itemColorQty {
+              @include defaultFlex(row, flex-start);
+              margin-top: 5px;
+              .cartColor {
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                border: 2px solid $text-white-color;
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+                margin-right: 5px;
+              }
+              .colorQty {
+                margin-left: 10px;
+                width: 50px;
+                background-color: $lite-blue;
+                @include defaultFlex(row, space-evenly);
                 border-radius: 4px;
+                color: $text-black-color;
+                span {
+                  font-size: 10px;
+                  line-height: 2.2;
+                  letter-spacing: 0.2px;
+                  color: $lite-gray;
+                }
+              }
             }
+            .priceSection {
+              margin-top: 10px;
+              span {
+                margin-right: 5px;
+              }
+              span:first-of-type {
+                color: $text-black-color;
+              }
+              span:nth-child(2) {
+                font-weight: 400;
+                text-decoration: line-through;
+              }
+              span:last-of-type {
+                color: $green;
+                font-weight: 400;
+              }
+            }
+            .saving {
+              font-weight: 400;
+              color: $green;
+              span {
+                font-weight: bold;
+                letter-spacing: 1px;
+              }
+            }
+          }
+        }
+        .cardRemove {
+          @include defaultFlex(row, space-between);
+          margin: 0 8px;
+          font-size: 12px;
+          font-weight: bold;
+          line-height: 1.25;
+          text-align: right;
+
+          div:first-of-type {
+            font-weight: 400;
+            color: $lite-gray;
+          }
+          div:last-of-type {
+            color: $text-blue;
+          }
+        }
+      }
+    }
+  }
+  .addPadding {
+    padding-top: 70px;
+  }
+
+  .cartOrderDetails {
+    background-color: $text-white-color;
+    margin-bottom: 50px;
+    padding: 25px 16px;
+    position: relative;
+    .cartBubble {
+      position: absolute;
+      height: 5px;
+      width: 90%;
+      top: -2px;
+      @include defaultFlex();
+      & > div {
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        margin-right: 10px;
+        background-color: $lite-blue;
+      }
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    .price {
+      font-size: $ft1_2;
+      @include defaultFlex(row, space-between);
+      color: $lite-gray;
+      margin-bottom: 10px;
+    }
+    .price.saving > div {
+      color: $green;
+    }
+    .price.totalAmount > div {
+      font-size: $ft1_4;
+      font-weight: bold;
+      color: $text-black-color;
+    }
+    .price.totalAmount {
+      margin-bottom: 0;
+    }
+  }
+
+  .placeOrder {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+    box-shadow: 0 -3px 6px 0 rgba(19, 56, 80, 0.16);
+    padding: 0 10px;
+    @include defaultFlex(row, space-between);
+    background-color: $text-white-color;
+
+    .cartFinalPrice {
+      & > div:first-child {
+        font-size: $ft1_8;
+        font-weight: bold;
+        text-align: left;
+        color: $text-black-color;
+      }
+      & > div:last-child {
+        font-size: $ft1_4;
+        font-weight: bold;
+        text-align: left;
+        color: $text-blue;
+      }
+    }
+    .placeOrderBtn {
+      @include defaultFlex();
+      width: 215px;
+      height: 48px;
+      border-radius: 8px;
+      background-color: $text-black-color;
+      color: $text-white-color;
+      font-size: $ft1_4;
+      font-weight: bold;
+      text-align: center;
+      border: none;
+      &:disabled {
+        color: $disable-text;
+        background-color: $disable-btn;
+      }
+    }
+  }
+
+  .cartShimmer {
+    height: 100vh;
+    width: 100%;
+
+    padding-top: 65px;
+    @include defaultFlex(column);
+    .cpc {
+      width: 344px;
+      height: 173px;
+      border-radius: 8px;
+      background-color: $text-white-color;
+      margin: auto;
+      padding-top: 8px;
+
+      .ci {
+        margin: 8px;
+        margin-top: 0;
+        @include defaultFlex(row, flex-start, flex-start);
+        .i {
+          width: 86px;
+          height: 105px;
+          border-radius: 7px;
+          background-color: #f0f4f7;
+        }
+        .cc {
+          // width: 100%;
+          // height: 100%;
+          margin-left: 20px;
+          & > div {
+            background-color: #f0f4f7;
+            margin-bottom: 5px;
+            border-radius: 4px;
+          }
+          & > div:nth-child(1) {
+            width: 100px;
+            height: 20px;
+          }
+          & > div:nth-child(2) {
+            width: 140px;
+            height: 20px;
+          }
+          & > div:nth-child(3) {
+            width: 80px;
+            height: 20px;
+          }
+        }
+      }
+    }
+    .cr {
+      @include defaultFlex(row, space-between);
+      margin: 20px 8px;
+      & > div {
+        width: 100px;
+        height: 20px;
+        background-color: #f0f4f7;
+        border-radius: 4px;
+      }
+    }
+    .animate {
+      animation: shimmer 1.4s linear infinite;
+      background: linear-gradient(
+        to right,
+        #f0f4f7 4%,
+        #e1e9ef 25%,
+        #f0f4f7 36%
+      );
+      background-size: 1000px 100%;
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .removeModal {
+    &__image {
+      @include defaultFlex(row, flex-start, flex-start);
+      padding: 22px;
+      .image {
+        width: 86px;
+        height: 105px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-right: 16px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .removeModalContent {
+        @include defaultFlex(column, center, flex-start);
+        h2 {
+          font-size: $ft1_8;
+          margin-bottom: 10px;
+        }
+        p {
+          font-size: $ft1_4;
+        }
+      }
+    }
+    button {
+      width: 90%;
+      height: 50px;
+      margin: 22px;
+      margin-top: 0;
+      border-radius: 8px;
+      background-color: $text-black-color;
+      color: $text-white-color;
+      font-size: $ft1_5;
+      letter-spacing: 1px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .updateQuantity {
+    height: 100%;
+    @include defaultFlex(column, center, flex-start);
+    margin: 20px;
+    .colorDetails {
+      @include defaultFlex();
+      & > div:first-of-type {
+        width: 32px;
+        height: 32px;
+        border: 2px solid $text-white-color;
+        border-radius: 50%;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+      }
+      & > div:last-of-type {
+        margin-left: 10px;
+        font-size: $ft1_4;
+      }
+    }
+    .changeQuantity {
+      width: 100%;
+      @include defaultFlex(row, flex-start);
+      margin: 20px 0;
+      font-size: $ft2;
+      font-weight: bold;
+      div {
+        width: 32px;
+        height: 32px;
+        margin: 0 8px;
+        border-radius: 4px;
+        box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
+        border: solid 0.5px rgba(18, 18, 18, 0.1);
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+    }
+    button {
+      width: 100%;
+      height: 50px;
+      margin-top: 0;
+      border-radius: 8px;
+      background-color: $text-black-color;
+      color: $text-white-color;
+      font-size: $ft1_5;
+      letter-spacing: 1px;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+  }
+
+  .animate {
+    animation: shimmer 1.4s linear infinite;
+    background: linear-gradient(to right, #f0f4f7 4%, #e1e9ef 25%, #f0f4f7 36%);
+    background-size: 1000px 100%;
+  }
+
+  .cartOos {
+    .oosMessage {
+      @include defaultFlex(row, flex-start);
+      padding-top: 70px;
+      margin-left: 16px;
+      margin-bottom: 10px;
+      ion-icon {
+        margin-right: 10px;
+        color: red;
+        font-size: 32px;
+      }
+      .message {
+        p {
+          color: #6d6d6d;
+          font-size: 12px;
+        }
+      }
+    }
+    .oosItemList {
+      display: flex;
+      overflow: auto;
+      &:last-of-type {
+        margin-right: 10px;
+      }
+    }
+    .cartCard {
+      margin-left: 16px;
+      margin-bottom: 20px;
+      box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.1);
+      background-color: $text-white-color;
+      border: none;
+      border-radius: 8px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 83%;
+      position: relative;
+      .disableOverLay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        opacity: 0.5;
+        background-color: $text-white-color;
+        border-radius: 8px;
+      }
+
+      .cardDetails {
+        margin: 8px;
+        @include defaultFlex(row, flex-start, flex-start);
+        .cardImage {
+          flex-grow: 0;
+          flex-shrink: 0;
+          flex-basis: 100px;
+          height: 120px;
+          border-radius: 8px;
+          overflow: hidden;
+          margin-right: 16px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
         .animate {
-            animation: shimmer 1.4s linear infinite;
-            background: linear-gradient(to right, #f0f4f7 4%, #e1e9ef 25%, #f0f4f7 36%);
-            background-size: 1000px 100%;
+          animation: shimmer 1.5s linear infinite;
+          background: linear-gradient(
+            to right,
+            #f0f4f7 4%,
+            #e1e9ef 25%,
+            #f0f4f7 36%
+          );
+          background-size: 1000px 100%;
         }
-    }
-
-    @keyframes shimmer {
-        0% {
-            background-position: -1000px 0;
-        }
-        100% {
-            background-position: 1000px 0;
-        }
-    }
-
-    .removeModal {
-        &__image {
-            @include defaultFlex(row, flex-start, flex-start);
-            padding: 22px;
-            .image {
-                width: 86px;
-                height: 105px;
-                border-radius: 8px;
-                overflow: hidden;
-                margin-right: 16px;
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-            .removeModalContent {
-                @include defaultFlex(column, center, flex-start);
-                h2 {
-                    font-size: $ft1_8;
-                    margin-bottom: 10px;
-                }
-                p {
-                    font-size: $ft1_4;
-                }
-            }
-        }
-        button {
-            width: 90%;
-            height: 50px;
-            margin: 22px;
-            margin-top: 0;
-            border-radius: 8px;
-            background-color: $text-black-color;
-            color: $text-white-color;
-            font-size: $ft1_5;
-            letter-spacing: 1px;
+        .cardInfo {
+          font-size: 12px;
+          font-weight: bold;
+          line-height: 1.83;
+          text-align: left;
+          color: $lite-gray;
+          .itemDescription {
             font-weight: 400;
-            text-transform: uppercase;
-        }
-    }
-
-    .updateQuantity {
-        height: 100%;
-        @include defaultFlex(column, center, flex-start);
-        margin: 20px;
-        .colorDetails {
-            @include defaultFlex();
-            & > div:first-of-type {
-                width: 32px;
-                height: 32px;
-                border: 2px solid $text-white-color;
-                border-radius: 50%;
-                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
-            }
-            & > div:last-of-type {
-                margin-left: 10px;
-                font-size: $ft1_4;
-            }
-        }
-        .changeQuantity {
-            width: 100%;
+            @include textTruncate();
+          }
+          .itemColorQty {
             @include defaultFlex(row, flex-start);
-            margin: 20px 0;
-            font-size: $ft2;
-            font-weight: bold;
-            div {
-                width: 32px;
-                height: 32px;
-                margin: 0 8px;
-                border-radius: 4px;
-                box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
-                border: solid 0.5px rgba(18, 18, 18, 0.1);
-                background-color: #ffffff;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: center;
-                font-size: 1.4rem;
-                font-weight: 700;
+            margin-top: 5px;
+            .cartColor {
+              width: 22px;
+              height: 22px;
+              border-radius: 50%;
+              border: 2px solid $text-white-color;
+              box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+              margin-right: 5px;
             }
-        }
-        button {
-            width: 100%;
-            height: 50px;
-            margin-top: 0;
-            border-radius: 8px;
-            background-color: $text-black-color;
-            color: $text-white-color;
-            font-size: $ft1_5;
-            letter-spacing: 1px;
+            .colorQty {
+              margin-left: 10px;
+              width: 50px;
+              background-color: $lite-blue;
+              @include defaultFlex(row, space-evenly);
+              border-radius: 4px;
+              color: $text-black-color;
+              span {
+                font-size: 10px;
+                line-height: 2.2;
+                letter-spacing: 0.2px;
+                color: $lite-gray;
+              }
+            }
+          }
+          .priceSection {
+            margin-top: 10px;
+            span {
+              margin-right: 5px;
+            }
+            span:first-of-type {
+              color: $text-black-color;
+            }
+            span:nth-child(2) {
+              font-weight: 400;
+              text-decoration: line-through;
+            }
+            span:last-of-type {
+              color: $green;
+              font-weight: 400;
+            }
+          }
+          .saving {
             font-weight: 400;
-            text-transform: uppercase;
+            color: $green;
+            span {
+              font-weight: bold;
+              letter-spacing: 1px;
+            }
+          }
         }
+      }
+      .removeOssBtn {
+        @include defaultFlex();
+        width: 94%;
+        height: 38px;
+        margin: auto;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        background-color: #202020;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1.25;
+        letter-spacing: 1px;
+        color: #ffffff;
+      }
     }
-
-    .animate {
-        animation: shimmer 1.4s linear infinite;
-        background: linear-gradient(to right, #f0f4f7 4%, #e1e9ef 25%, #f0f4f7 36%);
-        background-size: 1000px 100%;
-    }
+  }
 }
