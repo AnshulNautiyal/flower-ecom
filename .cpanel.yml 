@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/ye382sxfktjx/public_html/
-    - /bin/cp -R /home/ye382sxfktjx/flower_ecom/public $DEPLOYPATH
+    - export DEPLOYPATH=/home/ye382sxfktjx/public_html
+    - /bin/cp -r * $DEPLOYPATH
