@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "291497bd2d1fedba97b06cb7d3448d81",
+    "revision": "287fad6adb900be7f19eeac6dc31c230",
     "url": "/flower/client/index.html"
   },
   {
-    "revision": "b50874a74daacb8e6303",
+    "revision": "e827194c036a95d9c9d3",
     "url": "/flower/client/static/css/main.fc1b3c5b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/flower/client/static/js/2.b9357c7b.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b50874a74daacb8e6303",
-    "url": "/flower/client/static/js/main.f9cefdfa.chunk.js"
+    "revision": "e827194c036a95d9c9d3",
+    "url": "/flower/client/static/js/main.850e6240.chunk.js"
   },
   {
     "revision": "b901e125b4ab36a6df94",
