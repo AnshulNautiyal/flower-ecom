@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/flower/client/static/css/main.fc1b3c5b.chunk.css",
-    "main.js": "/flower/client/static/js/main.850e6240.chunk.js",
-    "main.js.map": "/flower/client/static/js/main.850e6240.chunk.js.map",
+    "main.css": "/flower/client/static/css/main.845c9608.chunk.css",
+    "main.js": "/flower/client/static/js/main.4a0ebe1a.chunk.js",
+    "main.js.map": "/flower/client/static/js/main.4a0ebe1a.chunk.js.map",
     "runtime-main.js": "/flower/client/static/js/runtime-main.5c81a4e2.js",
     "runtime-main.js.map": "/flower/client/static/js/runtime-main.5c81a4e2.js.map",
     "static/js/2.b9357c7b.chunk.js": "/flower/client/static/js/2.b9357c7b.chunk.js",
     "static/js/2.b9357c7b.chunk.js.map": "/flower/client/static/js/2.b9357c7b.chunk.js.map",
     "index.html": "/flower/client/index.html",
-    "precache-manifest.5ca92a85c47258f1e7b6c92e49127e8e.js": "/flower/client/precache-manifest.5ca92a85c47258f1e7b6c92e49127e8e.js",
+    "precache-manifest.594f0898c34d4d8e251cc6e95cfc304d.js": "/flower/client/precache-manifest.594f0898c34d4d8e251cc6e95cfc304d.js",
     "service-worker.js": "/flower/client/service-worker.js",
-    "static/css/main.fc1b3c5b.chunk.css.map": "/flower/client/static/css/main.fc1b3c5b.chunk.css.map",
+    "static/css/main.845c9608.chunk.css.map": "/flower/client/static/css/main.845c9608.chunk.css.map",
     "static/js/2.b9357c7b.chunk.js.LICENSE.txt": "/flower/client/static/js/2.b9357c7b.chunk.js.LICENSE.txt",
     "static/media/bag.svg": "/flower/client/static/media/bag.fa65e84b.svg",
     "static/media/desktop404.png": "/flower/client/static/media/desktop404.716126a1.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.5c81a4e2.js",
     "static/js/2.b9357c7b.chunk.js",
-    "static/css/main.fc1b3c5b.chunk.css",
-    "static/js/main.850e6240.chunk.js"
+    "static/css/main.845c9608.chunk.css",
+    "static/js/main.4a0ebe1a.chunk.js"
   ]
 }
