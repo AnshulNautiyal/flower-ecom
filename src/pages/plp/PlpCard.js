@@ -27,7 +27,7 @@ const PlpCard = ({
   const completePath = hostName;
   return (
   <div className="plpCardContainer" key={flower_id}>
-    <a href={`${completePath}${redirect}`}>
+    <a href={`${completePath}/${redirect}`}>
       <div className="image">
         <img data-src={imageUrl} alt={name} className="lazyload" />
       </div>
