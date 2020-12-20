@@ -18,7 +18,7 @@ import {
 export const baseUrl = "/flower/client/";
 export const Routes = () => {
   return (
-    <BrowserRouter basename={baseUrl}>
+    <BrowserRouter>
       <MobileView>
         <Switch>
           <Route exact path="/signup" component={SignUpParent} />
