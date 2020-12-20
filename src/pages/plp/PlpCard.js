@@ -1,6 +1,5 @@
 import React from "react";
 import 'lazysizes';
-import { baseUrl } from "../../routes/Routes";
 const hostName = window.location.origin;
 
 const getColoVariant = (colorVariant = []) => {
@@ -25,7 +24,7 @@ const PlpCard = ({
   flower_id = "",
   name = "",
 }) => {
-  const completePath = hostName + baseUrl;
+  const completePath = hostName;
   return (
   <div className="plpCardContainer" key={flower_id}>
     <a href={`${completePath}${redirect}`}>
