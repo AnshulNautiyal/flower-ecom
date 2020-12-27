@@ -1,99 +1,45 @@
-.mainContainer
-{
-    width:100vw;
-    height:100vh;
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
 
-    .orderStatusContainer
-    {
-        height:40vh;
-        background-color: $lite-blue;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+  .orderStatusContainer {
+    height: 40vh;
+    background-color: $lite-blue;
+    @include defaultFlex(column);
 
-
-        .statusIcon
-        {
-            font-size: 7em;
-            padding: 10px;
-            border-radius: 100%;
-            color: white;
-            margin: 10px;
-        }
-
-        .success
-        {
-            background-color: $green;
-        }
-
-        .failure
-        {
-            background-color: $error;
-        }
-
-        .orderStatus
-        {
-            font-size: $ft2;
-            font-weight: 800;
-
-        }
-
-        .orderId
-        {
-            font-size: $ft1_5;
-            margin: 10px;
-        }
+    .statusIcon {
+      font-size: 7em;
+      padding: 10px;
+      border-radius: 100%;
+      color: white;
+      margin: 10px;
     }
 
-    .orderDetailsContainer
-    {
-
+    .success {
+      background-color: $green;
     }
+
+    .failure {
+      background-color: $error;
+    }
+
+    .orderStatus {
+      font-size: $ft2;
+      font-weight: 800;
+    }
+
+    .orderId {
+      font-size: $ft1_5;
+      margin: 10px;
+    }
+  }
 }
 
 .orderDetails {
-    background-color: $text-white-color;
-    margin-bottom: 50px;
-    padding: 25px 16px;
-    position: relative;
-    .cartBubble {
-      position: absolute;
-      height: 5px;
-      width: 90%;
-      top: -2px;
-      @include defaultFlex();
-      & > div {
-        width: 12px;
-        height: 12px;
-        border-radius: 100%;
-        margin-right: 10px;
-        background-color: $lite-blue;
-      }
-    }
-    h2 {
-      margin-bottom: 10px;
-    }
-    .price {
-      font-size: $ft1_2;
-      @include defaultFlex(row, space-between);
-      color: $lite-gray;
-      margin-bottom: 10px;
-    }
-    .price.saving > div {
-      color: $green;
-    }
-    .price.totalAmount > div {
-      font-size: $ft1_4;
-      font-weight: bold;
-      color: $text-black-color;
-    }
-    .price.totalAmount {
-      margin-bottom: 0;
-    }
-  }
-
-
+  background-color: $text-white-color;
+  margin-bottom: 50px;
+  padding: 25px 16px;
+  position: relative;
   .cartBubble {
     position: absolute;
     height: 5px;
@@ -108,44 +54,77 @@
       background-color: $lite-blue;
     }
   }
-
-  .continueShopping {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 65px;
-    box-shadow: 0 -3px 6px 0 rgba(19, 56, 80, 0.16);
-    padding: 0 10px;
+  h2 {
+    margin-bottom: 10px;
+  }
+  .price {
+    font-size: $ft1_2;
     @include defaultFlex(row, space-between);
-    background-color: $text-white-color;
- 
-    .placeOrderBtn {
-      @include defaultFlex();
-      width: 100%;
-      height: 48px;
-      border-radius: 8px;
-      background-color: $text-black-color;
-      color: $text-white-color;
-      font-size: $ft1_4;
-      font-weight: bold;
-      text-align: center;
-      border: none;
-      &:disabled {
-        color: $disable-text;
-        background-color: $disable-btn;
-      }
+    color: $lite-gray;
+    margin-bottom: 10px;
+  }
+  .price.saving > div {
+    color: $green;
+  }
+  .price.totalAmount > div {
+    font-size: $ft1_4;
+    font-weight: bold;
+    color: $text-black-color;
+  }
+  .price.totalAmount {
+    margin-bottom: 0;
+  }
+}
+
+.cartBubble {
+  position: absolute;
+  height: 5px;
+  width: 90%;
+  top: -2px;
+  @include defaultFlex();
+  & > div {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    margin-right: 10px;
+    background-color: $lite-blue;
+  }
+}
+
+.continueShopping {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 65px;
+  box-shadow: 0 -3px 6px 0 rgba(19, 56, 80, 0.16);
+  padding: 0 10px;
+  @include defaultFlex(row, space-between);
+  background-color: $text-white-color;
+
+  .placeOrderBtn {
+    @include defaultFlex();
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+    background-color: $text-black-color;
+    color: $text-white-color;
+    font-size: $ft1_4;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    &:disabled {
+      color: $disable-text;
+      background-color: $disable-btn;
     }
   }
+}
 
+.details {
+  font-size: $ft1_2;
 
-  .details
-  {
-      font-size: $ft1_2;
-
-      img
-      {
-        object-fit: cover;
-        width: 100vw;
-      }
+  img {
+    object-fit: cover;
+    width: 100vw;
   }
+}
