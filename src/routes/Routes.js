@@ -6,7 +6,7 @@ import Home from "./../pages/home";
 import Plp from "./../pages/plp";
 import Pdp from "./../pages/pdp";
 import Cart from "./../pages/Cart";
-import Shipping from "./../pages/shipping";
+import Shipping from "./../pages/Shipping";
 import OrderConfirmation from "./../pages/orderConfirmation/OrderConfirmation";
 import { Page404 } from "./../pages/404page";
 import { BrowserComponent } from "./../components/BrowserComponent";
@@ -15,7 +15,8 @@ import {
   MobileView,
 } from "react-device-detect";
 
-export const baseUrl = "/flower/client/";
+export const baseUrl = "/";
+// export const baseUrl = "/flower/client/";
 export const Routes = () => {
   return (
     <BrowserRouter>
@@ -38,5 +39,6 @@ export const Routes = () => {
         </Switch>
       </BrowserView>
     </BrowserRouter>
+
   );
 };
