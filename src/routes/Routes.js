@@ -6,8 +6,8 @@ import Home from "./../pages/home";
 import Plp from "./../pages/plp";
 import Pdp from "./../pages/pdp";
 import Cart from "./../pages/Cart";
-import Shipping from "./../pages/shipping";
-import OrderConfirmation from "./../pages/orderConfirmation/OrderConfirmation";
+// import Shipping from "./../pages/shipping";
+import {OrderConfirmationComponent} from "./../pages/orderConfirmation/index";
 import { Page404 } from "./../pages/404page";
 import { BrowserComponent } from "./../components/BrowserComponent";
 import {
@@ -27,8 +27,8 @@ export const Routes = () => {
           <Route exact path="/c/:id" component={Plp} />
           <Route exact path="/pdp/:name/:id" component={Pdp} />
           <Route exact path="/cart" component={Cart} />
-          <Route exact path="/shipping" component={Shipping} />
-          <Route exact path="/order-confirm" component={OrderConfirmation} />
+          {/* <Route exact path="/shipping" component={Shipping} /> */}
+          <Route exact path="/order-confirm" component={OrderConfirmationComponent} />
           <Route component={Page404} />
         </Switch>
       </MobileView>
