@@ -1,7 +1,8 @@
 import React from "react";
 import { OrderDetails } from "./orderDetails";
 import orderStatusImage from "../../static/images/order_status.jpg";
-const OrderConfirmation = () => {
+import {getOrderDetails} from './orderConfirmationApiCall';
+const OrderConfirmation = (props) => {
   const status = "N";
   const isOrderSuccessful = status == "Y";
   const orderDetails = {
@@ -10,6 +11,9 @@ const OrderConfirmation = () => {
     delivery_charges: 18.5,
     total_amount: 23.5,
   };
+
+  console.log('%c Order Confirmation Page Props','background-color:grren;color:white;',props);
+  // getOrderDetails()
 
   return (
     <div class="mainContainer">
