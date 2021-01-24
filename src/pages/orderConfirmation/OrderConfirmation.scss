@@ -23,6 +23,10 @@
       background-color: $error;
     }
 
+    .warning {
+      background-color: $warning;
+    }
+
     .orderStatus {
       font-size: $ft2;
       font-weight: 800;
@@ -32,6 +36,11 @@
       font-size: $ft1_5;
       margin: 10px;
     }
+  }
+
+  .fullScreen {
+    height: 100vh;
+    width: 100vw;
   }
 }
 

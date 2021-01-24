@@ -3,7 +3,7 @@ import React from "react";
 export const OrderDetails = (data) => {
   const {
     orderDetails: {
-      cart_total = "",
+      order_total = "",
       delivery_charges = "",
       savings = "",
       total_amount = "",
@@ -24,7 +24,7 @@ export const OrderDetails = (data) => {
       <div className="price-calc">
         <div className="price bagTotal">
           <div>Bag total</div>
-          <div>&#x20B9; {cart_total}</div>
+          <div>&#x20B9; {order_total}</div>
         </div>
         <div className="price saving">
           <div>Savings</div>
