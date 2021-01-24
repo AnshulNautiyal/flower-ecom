@@ -1,0 +1,194 @@
+.shippingPage {
+  height: 100vh;
+  .shippingHeader {
+    .shippingStep {
+      font-family: $nunito;
+      font-size: $ft1_2;
+      line-height: 1.83;
+      letter-spacing: 0.24px;
+      text-align: left;
+      & > div:first-child {
+        color: $lite-gray;
+      }
+      & > div:last-child {
+        color: $text-black-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .shippingContainer {
+    height: 100%;
+    background-color: $lite-blue;
+    padding-top: 70px;
+    .addressDetails {
+      width: 345px;
+      background-color: $text-white-color;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.1);
+      padding: 16px;
+
+      .addressType {
+        @include defaultFlex(row, space-between);
+        font-size: $ft1_2;
+        .addressTag {
+          @include defaultFlex();
+          & > div {
+            min-width: 40px;
+            height: 20px;
+            background-color: $dark-grey;
+            border-radius: 4px;
+            @include defaultFlex();
+            color: $text-white-color;
+            text-transform: uppercase;
+            padding: 0 4px;
+            margin-right: 5px;
+            margin-bottom: 10px;
+            box-sizing: content-box;
+          }
+        }
+        .addEditAddress {
+          color: $text-blue;
+          font-weight: bold;
+          font-size: $ft1_4;
+        }
+      }
+      h4 {
+        font-size: $ft1_4;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      p {
+        font-size: $ft1_4;
+        color: $lite-gray;
+        margin-bottom: 5px;
+        span {
+          color: $text-black-color;
+          font-weight: bold;
+        }
+      }
+      .phoneNumber {
+        margin-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: .5px solid $disable-btn;
+      }
+      .deliveryDetails {
+        @include defaultFlex(row, space-between);
+        margin-top: 10px;
+        font-size: $ft1_3;
+        font-weight: bold;
+        line-height: 1.08;
+        .cod {
+          color: $green;
+        }
+        .estd {
+          @include defaultFlex(column, space-between,flex-end);
+          & > div:first-of-type{
+            font-weight: 400;
+            margin-bottom: 4px;
+            color: $lite-gray;
+          }
+        }
+      }
+    }
+
+    .placeOrder {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 65px;
+      box-shadow: 0 -3px 6px 0 rgba(19, 56, 80, 0.16);
+      padding: 0 10px;
+      @include defaultFlex(row, space-between);
+      background-color: $text-white-color;
+  
+      .cartFinalPrice {
+        & > div:first-child {
+          font-size: $ft1_8;
+          font-weight: bold;
+          text-align: left;
+          color: $text-black-color;
+        }
+        & > div:last-child {
+          font-size: $ft1_4;
+          font-weight: bold;
+          text-align: left;
+          color: $text-blue;
+        }
+      }
+      .placeOrderBtn {
+        @include defaultFlex();
+        width: 215px;
+        height: 48px;
+        border-radius: 8px;
+        background-color: $text-black-color;
+        color: $text-white-color;
+        font-size: $ft1_4;
+        font-weight: bold;
+        text-align: center;
+        border: none;
+        &:disabled {
+          color: $disable-text;
+          background-color: $disable-btn;
+        }
+      }
+    }
+
+    .productList {
+
+      width: 100%;
+      min-height: 60%;
+      margin-top: 20px;
+      background-color: $text-white-color;
+      padding: 16px;
+      & > h2 {
+        margin-bottom: 6px;
+      }
+      & > p {
+        font-size: $ft1_2;
+        color: $lite-black;
+      }
+      .products {
+
+        padding-top: 20px;
+        padding-bottom: 40px;
+        .productsSection {
+
+          @include defaultFlex(row,flex-start,flex-start);
+          margin-bottom: 20px;
+          .productsImage {
+
+            margin-right: 10px;
+            width: 60px;
+            height: 70px;
+            background-color: red;
+            border-radius: 8px;
+            overflow: hidden;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          .productDetails {
+            @include defaultFlex(column, center, flex-start);
+            height: 100%;
+
+            & > * {
+              margin-bottom: 6px;
+            }
+            & > p {
+              font-size: $ft1_2;
+              color: $lite-gray;
+            }
+          }
+
+
+        }
+
+      }
+
+    }
+  }
+}
