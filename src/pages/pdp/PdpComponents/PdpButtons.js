@@ -2,6 +2,7 @@ import React from "react";
 import { baseUrl } from "../../../routes/Routes";
 
 const redirectToCart = () => {
+  console.log(121212)
   window.location = "/cart";
 };
 const PdpButtons = (props) => {
