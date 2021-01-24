@@ -2,7 +2,7 @@ import React from "react";
 import { baseUrl } from "../../../routes/Routes";
 
 const redirectToCart = () => {
-  window.location.href = baseUrl + "cart";
+  window.location = "/cart";
 };
 const PdpButtons = (props) => {
   const { handleAddToBag } = props;
